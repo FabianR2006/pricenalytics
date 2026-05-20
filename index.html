@@ -13,7 +13,7 @@
     :root {
       --bg: #f4f6fd;
       --surface: #ffffff;
-      --text: #0c1a3a;
+      --texto: #0c1a3a;
       --muted: #5a6890;
       --line: #dde2f0;
       --p1: #0f4fcc;
@@ -33,7 +33,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text);
+      color: var(--texto);
       background: var(--bg);
       overflow-x: hidden;
     }
@@ -61,7 +61,7 @@
       font-family: 'Syne', sans-serif;
       font-size: .85rem; font-weight: 900; color: #fff;
     }
-    .brand-name {
+    .brand-nombre {
       font-family: 'Syne', sans-serif;
       font-size: 1.05rem; font-weight: 800;
       color: #fff; letter-spacing: -.02em;
@@ -76,13 +76,11 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: .3s; }
 
-    #botones
-    
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 7px; border: 0; border-radius: var(--r-md);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700; cursor: pointer; transition: all .3s cubic-bezier(.23,1,.320,1);
+      font-weight: 700; cursor: pointer; transition: box-shadow .3s cubic-bezier(.23,1,.320,1), background .3s cubic-bezier(.23,1,.320,1), border-color .3s cubic-bezier(.23,1,.320,1), color .3s cubic-bezier(.23,1,.320,1);
       padding: 11px 20px; font-size: .88rem;
       position: relative;
       overflow: hidden;
@@ -96,11 +94,12 @@
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
       transition: left .5s;
+      pointer-events: none;
     }
     .btn:hover::before {
       left: 100%;
     }
-    .btn:hover {transform: translateY(-2px);will-change: transform;}
+    .btn:hover {will-change: box-shadow;}
     .btn-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(10px); }
     .btn-ghost:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.3); }
     .btn-primary { background: linear-gradient(135deg,#4d90ff,#0f4fcc); color: #fff; box-shadow: 0 8px 24px rgba(56,128,255,.35); }
@@ -120,7 +119,7 @@
       display: flex; align-items: center;
       padding: 100px 60px 80px;
     }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1280px; margin: 0 auto; width: 100%; }
+    .hero-cuadricula { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1280px; margin: 0 auto; width: 100%; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px; border-radius: 20px;
@@ -138,9 +137,9 @@
       animation: fadeInUp .6s .1s ease both;
     }
     .hero h1 .hl {
-      background: linear-gradient(90deg,#6fa3ff,#3880ff,#82d9ff);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background: none;
+      color: #fff;
+      -webkit-text-fill-color: currentColor;
     }
     .hero-sub {
       margin: 22px 0 36px;
@@ -152,26 +151,13 @@
       display: flex; gap: 14px; flex-wrap: wrap;
       animation: fadeInUp .6s .3s ease both;
     }
-    .hero-trust {
-      margin-top: 44px;
-      display: flex; align-items: center; gap: 14px;
-      animation: fadeInUp .6s .4s ease both;
-    }
-    .hero-avatars { display: flex; }
-    .hero-avatars img {
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 2px solid #091630; margin-left: -10px;
-    }
-    .hero-avatars img:first-child { margin-left: 0; }
-    .hero-trust-text { font-size: .82rem; color: rgba(255,255,255,.55); }
-    .hero-trust-text strong { color: rgba(255,255,255,.85); }
 
     /* Panel visual principal */
     .hero-panel {
       animation: fadeInRight .8s .2s ease both;
       position: relative;
     }
-    .panel-card {
+    .panel-tarjeta {
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.09);
       border-radius: var(--r-xl);
@@ -185,10 +171,10 @@
     .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 1.5s infinite; }
     .panel-product { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: var(--r-lg); background: rgba(255,255,255,.05); margin-bottom: 12px; cursor: pointer; transition: background .2s; }
     .panel-product:hover { background: rgba(255,255,255,.08); }
-    .panel-product-img { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; background: linear-gradient(135deg,#1a2e60,#2a4899); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .panel-product-imagen { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; background: linear-gradient(135deg,#1a2e60,#2a4899); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
     .panel-product-info { flex: 1; }
-    .panel-product-name { font-size: .88rem; font-weight: 700; color: #fff; }
-    .panel-product-cat { font-size: .72rem; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .panel-product-nombre { font-size: .88rem; font-weight: 700; color: #fff; }
+    .panel-product-categoria { font-size: .72rem; color: rgba(255,255,255,.4); margin-top: 2px; }
     .panel-product-badge { padding: 4px 10px; border-radius: 20px; font-size: .72rem; font-weight: 800; }
     .badge-danger { background: rgba(229,62,58,.2); color: #f87171; border: 1px solid rgba(229,62,58,.3); }
     .badge-success { background: rgba(20,168,92,.2); color: #4ade80; border: 1px solid rgba(20,168,92,.3); }
@@ -196,8 +182,8 @@
     .mini-chart { margin: 18px 0; height: 70px; }
     .mini-chart svg { width: 100%; height: 100%; }
     .panel-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-    .stat-pill { padding: 12px; border-radius: var(--r-md); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); text-align: center; }
-    .stat-pill-val { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; }
+    .stat-pill { padding: 12px; border-radius: var(--r-md); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); texto-align: center; }
+    .stat-pill-valor { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; }
     .stat-pill-lbl { font-size: .68rem; color: rgba(255,255,255,.4); margin-top: 2px; }
 
     /* Decoraciones flotantes */
@@ -218,7 +204,7 @@
     .float-tag-2 { bottom: 22%; left: -14px; animation: float2 4.5s ease-in-out infinite; }
     .float-tag-inner { display: flex; align-items: center; gap: 8px; }
     .float-tag-icon { font-size: 1.1rem; }
-    .float-tag-text { font-size: .72rem; font-weight: 700; color: #fff; }
+    .float-tag-texto { font-size: .72rem; font-weight: 700; color: #fff; }
     .float-tag-sub { font-size: .65rem; color: rgba(255,255,255,.45); }
 
     @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
@@ -290,7 +276,7 @@
     .splash-content {
       position: relative;
       z-index: 10;
-      text-align: center;
+      texto-align: center;
       animation: fadeInUp 1s ease-out;
     }
     
@@ -327,7 +313,7 @@
       animation: lineAnimation 1s ease-out 0.3s both;
     }
     
-    .splash-text {
+    .splash-texto {
       color: #fff;
       font-family: 'Syne', sans-serif;
       font-size: 28px;
@@ -354,7 +340,7 @@
       pointer-events: none;
     }
     
-    .particle {
+    .particula {
       position: absolute;
       width: 4px;
       height: 4px;
@@ -368,7 +354,7 @@
       background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
       padding: 22px 60px; overflow: hidden;
     }
-    .logo-strip-label { text-align: center; font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-bottom: 18px; }
+    .logo-strip-label { texto-align: center; font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-bottom: 18px; }
     .logos-track { display: flex; align-items: center; gap: 54px; animation: scrollLogos 22s linear infinite; white-space: nowrap; }
     .logos-track span { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: #bbc3d8; letter-spacing: -.02em; flex-shrink: 0; }
     @keyframes scrollLogos { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
@@ -377,51 +363,51 @@
     .section { padding: 100px 60px; max-width: 1280px; margin: 0 auto; }
     .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: .75rem; font-weight: 800; letter-spacing: .1em; color: var(--p1); text-transform: uppercase; margin-bottom: 12px; }
     .section-label::before { content:''; width: 18px; height: 2px; background: var(--p1); border-radius: 2px; }
-    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem,3.2vw,3.2rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.1; color: var(--text); }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem,3.2vw,3.2rem); font-weight: 900; letter-spacing: -.04em; line-height: 1.1; color: var(--texto); }
     .section-sub { margin-top: 14px; font-size: 1.05rem; color: var(--muted); line-height: 1.65; max-width: 580px; }
     .section-head { margin-bottom: 54px; }
 
     /* ═══ COMO FUNCIONA ═══ */
     .how-it-works { background: var(--surface); }
     .how-wrap { max-width: 1280px; margin: 0 auto; padding: 100px 60px; }
-    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
-    .steps-grid::after {
+    .steps-cuadricula { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+    .steps-cuadricula::after {
       content:''; position: absolute; top: 42px; left: 10%; right: 10%; height: 2px;
       background: linear-gradient(90deg,var(--line),var(--p2),var(--line));
     }
-    .step { text-align: center; padding: 0 24px; position: relative; z-index: 1; }
-    .step-num {
+    .paso { texto-align: center; padding: 0 24px; position: relative; z-index: 1; }
+    .paso-num {
       width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 22px;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 900;
       border: 2px solid var(--line); background: var(--surface);
       color: var(--p1); transition: all .3s;
     }
-    .step:hover .step-num { background: var(--p1); color: #fff; border-color: var(--p1); transform: scale(1.08); }
-    .step-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; width: 1.8rem; height: 1.8rem; color: var(--p1); }
-    .step:hover .step-icon { color: #fff; }
-    .step p { font-size: .88rem; color: var(--muted); line-height: 1.55; }
+    .paso:hover .paso-num { background: var(--p1); color: #fff; border-color: var(--p1); transform: scale(1.08); }
+    .paso-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; width: 1.8rem; height: 1.8rem; color: var(--p1); }
+    .paso:hover .paso-icon { color: #fff; }
+    .paso p { font-size: .88rem; color: var(--muted); line-height: 1.55; }
 
     /* ═══ CARACTERISTICAS ═══ */
     .features-section { padding: 100px 60px; }
-    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 54px; }
-    .feat-big { grid-row: span 2; }
-    .feat-card {
+    .features-cuadricula { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 54px; }
+    .feat-big { cuadricula-row: span 2; }
+    .feat-tarjeta {
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--r-xl); padding: 32px;
       transition: box-shadow .3s, transform .3s;
       overflow: hidden; position: relative;
     }
-    .feat-card:hover { box-shadow: var(--sh-lg); transform: translateY(-4px); }
-    .feat-card-accent { height: 3px; border-radius: 2px; margin-bottom: 24px; }
+    .feat-tarjeta:hover { box-shadow: var(--sh-lg); transform: translateY(-4px); }
+    .feat-tarjeta-accent { height: 3px; border-radius: 2px; margin-bottom: 24px; }
     .accent-blue { background: linear-gradient(90deg,#3880ff,#82d9ff); }
     .accent-green { background: linear-gradient(90deg,#22c45c,#86efac); }
     .accent-amber { background: linear-gradient(90deg,#f59e0b,#fde68a); }
     .accent-purple { background: linear-gradient(90deg,#8b5cf6,#c4b5fd); }
-    .feat-card-icon { font-size: 2.2rem; margin-bottom: 16px; }
-    .feat-card h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
-    .feat-card p { color: var(--muted); font-size: .93rem; line-height: 1.6; }
-    .feat-big .feat-card { height: 100%; display: flex; flex-direction: column; }
+    .feat-tarjeta-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .feat-tarjeta h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+    .feat-tarjeta p { color: var(--muted); font-size: .93rem; line-height: 1.6; }
+    .feat-big .feat-tarjeta { height: 100%; display: flex; flex-direction: column; }
     .feat-big-chart { flex: 1; min-height: 180px; margin-top: 24px; border-radius: var(--r-lg); overflow: hidden; position: relative; }
 
     /* Grafico de barras en linea */
@@ -434,7 +420,7 @@
     }
     .bar-your { background: linear-gradient(180deg,#4d90ff,#0f4fcc); }
     .bar-market { background: linear-gradient(180deg,#e2e8f8,#c7d2ea); }
-    .bar-lbl { font-size: .65rem; font-weight: 700; color: var(--muted); text-align: center; }
+    .bar-lbl { font-size: .65rem; font-weight: 700; color: var(--muted); texto-align: center; }
     .bars-legend { display: flex; gap: 16px; margin-top: 14px; }
     .legend-item { display: flex; align-items: center; gap: 6px; font-size: .76rem; color: var(--muted); font-weight: 600; }
     .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
@@ -470,8 +456,8 @@
       box-shadow: 0 8px 20px rgba(15,79,204,.25);
       transform: translateY(-2px);
     }
-    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .product-card {
+    .product-cuadricula { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .product-tarjeta {
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--r-xl); padding: 24px;
       transition: box-shadow .4s cubic-bezier(.23,1,.320,1), transform .4s cubic-bezier(.23,1,.320,1), border-color .3s;
@@ -479,7 +465,7 @@
       animation: scaleUp .5s ease-out;
       cursor: pointer;
     }
-    .product-card::before {
+    .product-tarjeta::before {
       content: '';
       position: absolute;
       top: 0;
@@ -491,7 +477,7 @@
       transition: opacity .4s;
       pointer-events: none;
     }
-    .product-card::after {
+    .product-tarjeta::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -503,59 +489,58 @@
       transition: opacity .5s;
       pointer-events: none;
     }
-    .product-card:hover {
+    .product-tarjeta:hover {
       box-shadow: 0 20px 60px rgba(15,79,204,.25);
       transform: translateY(-12px);
       border-color: var(--p2);
     }
-    .product-card:hover::before {
+    .product-tarjeta:hover::before {
       opacity: 1;
     }
-    .product-card:hover::after {
+    .product-tarjeta:hover::after {
       opacity: 1;
     }
-    .product-card.is-hidden { display: none; }
+    .product-tarjeta.is-hidden { display: none; }
     .product-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; gap: 12px; }
-    .product-thumb {
+    .product-miniatura {
       width: 64px; height: 64px; border-radius: var(--r-md);
       display: flex; align-items: center; justify-content: center; font-size: 2rem;
       flex-shrink: 0;
       transition: transform .3s;
     }
-    .product-card:hover .product-thumb {
+    .product-tarjeta:hover .product-miniatura {
       transform: scale(1.1) rotate(2deg);
     }
-    .thumb-blue { background: linear-gradient(135deg,#dbeafe,#bfdbfe); }
-    .thumb-pink { background: linear-gradient(135deg,#fce7f3,#fbcfe8); }
-    .thumb-mint { background: linear-gradient(135deg,#d1fae5,#a7f3d0); }
-    .thumb-amber { background: linear-gradient(135deg,#fef3c7,#fde68a); }
-    .thumb-purple { background: linear-gradient(135deg,#ede9fe,#ddd6fe); }
-    .thumb-sky { background: linear-gradient(135deg,#e0f2fe,#bae6fd); }
-    .product-name { font-weight: 800; font-size: 1rem; margin-bottom: 2px; transition: color .2s; }
-    .product-card:hover .product-name { color: var(--p1); }
-    .product-cat { font-size: .75rem; color: var(--muted); font-weight: 600; }
+    .miniatura-blue { background: linear-gradient(135deg,#dbeafe,#bfdbfe); }
+    .miniatura-pink { background: linear-gradient(135deg,#fce7f3,#fbcfe8); }
+    .miniatura-mint { background: linear-gradient(135deg,#d1fae5,#a7f3d0); }
+    .miniatura-amber { background: linear-gradient(135deg,#fef3c7,#fde68a); }
+    .miniatura-purple { background: linear-gradient(135deg,#ede9fe,#ddd6fe); }
+    .miniatura-sky { background: linear-gradient(135deg,#e0f2fe,#bae6fd); }
+    .product-nombre { font-weight: 800; font-size: 1rem; margin-bottom: 2px; transition: color .2s; }
+    .product-tarjeta:hover .product-nombre { color: var(--p1); }
+    .product-categoria { font-size: .75rem; color: var(--muted); font-weight: 600; }
     .product-prices { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
     .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: .88rem; }
     .price-row:last-child { margin-bottom: 0; }
     .price-lbl { color: var(--muted); font-weight: 600; }
-    .price-val { font-weight: 800; }
-    .product-status {
+    .price-valor { font-weight: 800; }
+    .product-estado {
       margin-top: 14px; padding: 10px 16px; border-radius: 8px;
-      font-size: .82rem; font-weight: 800; text-align: center;
+      font-size: .82rem; font-weight: 800; texto-align: center;
       display: flex; align-items: center; justify-content: center; gap: 6px;
       animation: pulse 2s infinite;
     }
-    .status-danger { background: rgba(229,62,58,.08); color: var(--danger); border: 1px solid rgba(229,62,58,.18); }
-    .status-success { background: rgba(20,168,92,.08); color: var(--success); border: 1px solid rgba(20,168,92,.18); }
-    .status-warning { background: rgba(245,158,11,.08); color: var(--warning); border: 1px solid rgba(245,158,11,.2); }
-    .card-action-bar { display: flex; gap: 8px; margin-top: 14px;align-items: center; } 
-    .card-action-bar .btn { flex: 1; font-size: .78rem; padding: 9px 12px; transition: transform .2s; }
-    .card-action-bar .btn:hover {transform: scale(1.00);}
+    .estado-danger { background: rgba(229,62,58,.08); color: var(--danger); border: 1px solid rgba(229,62,58,.18); }
+    .estado-success { background: rgba(20,168,92,.08); color: var(--success); border: 1px solid rgba(20,168,92,.18); }
+    .estado-warning { background: rgba(245,158,11,.08); color: var(--warning); border: 1px solid rgba(245,158,11,.2); }
+    .tarjeta-action-bar { display: flex; gap: 8px; margin-top: 14px; align-items: center; } 
+    .tarjeta-action-bar .btn { flex: 1; font-size: .78rem; padding: 9px 12px; }
     
 
-    /* Price diff bar */
-    .diff-bar { height: 5px; border-radius: 4px; background: var(--line); margin: 10px 0 4px; overflow: hidden; }
-    .diff-fill { height: 100%; border-radius: 4px; animation: slideInLeft .8s ease; }
+    /* Price diferencia bar */
+    .diferencia-bar { height: 5px; border-radius: 4px; background: var(--line); margin: 10px 0 4px; overflow: hidden; }
+    .diferencia-fill { height: 100%; border-radius: 4px; animation: slideInLeft .8s ease; }
     .fill-danger { background: var(--danger); }
     .fill-success { background: var(--success); }
     .fill-warning { background: var(--warning); }
@@ -566,8 +551,8 @@
       padding: 80px 60px;
     }
     .stats-inner { max-width: 1280px; margin: 0 auto; }
-    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
-    .stat-block { padding: 48px 32px; text-align: center; background: rgba(255,255,255,.03); }
+    .stats-cuadricula { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+    .stat-block { padding: 48px 32px; texto-align: center; background: rgba(255,255,255,.03); }
     .stat-block:first-child { border-radius: var(--r-xl) 0 0 var(--r-xl); }
     .stat-block:last-child { border-radius: 0 var(--r-xl) var(--r-xl) 0; }
     .stat-num { font-family: 'Syne', sans-serif; font-size: 3.2rem; font-weight: 900; color: #fff; line-height: 1; }
@@ -581,7 +566,7 @@
     }
     .pricing-toggle { display: flex; align-items: center; gap: 14px; margin: 32px 0 48px; }
     .toggle-label { font-weight: 700; font-size: .9rem; color: var(--muted); }
-    .toggle-label.active { color: var(--text); }
+    .toggle-label.active { color: var(--texto); }
     .toggle-switch {
       position: relative; width: 52px; height: 28px; cursor: pointer;
     }
@@ -591,91 +576,70 @@
       transition: background .3s;
     }
     .toggle-switch input:checked ~ .toggle-track { background: var(--p1); }
-    .toggle-thumb {
+    .toggle-miniatura {
       position: absolute; top: 4px; left: 4px;
       width: 20px; height: 20px; border-radius: 50%; background: #fff;
       box-shadow: 0 2px 6px rgba(0,0,0,.2);
       transition: transform .3s;
     }
-    .toggle-switch input:checked ~ .toggle-track .toggle-thumb { transform: translateX(24px); }
+    .toggle-switch input:checked ~ .toggle-track .toggle-miniatura { transform: translateX(24px); }
     .save-badge { padding: 4px 10px; background: rgba(20,168,92,.1); color: var(--success); border-radius: 20px; font-size: .72rem; font-weight: 800; }
-    .plans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .plan-card {
+    .plans-cuadricula { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .plan-tarjeta {
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--r-xl); padding: 32px; position: relative;
       transition: box-shadow .3s, transform .3s;
     }
-    .plan-card:hover { box-shadow: var(--sh-lg); transform: translateY(-4px); }
-    .plan-card.featured {
+    .plan-tarjeta:hover { box-shadow: var(--sh-lg); transform: translateY(-4px); }
+    .plan-tarjeta.featured {
       background: linear-gradient(155deg,#0f4fcc,#2265e8);
       border-color: transparent; color: #fff;
     }
-    .plan-card.featured .plan-price,
-    .plan-card.featured .plan-period,
-    .plan-card.featured .plan-name,
-    .plan-card.featured .plan-desc { color: rgba(255,255,255,.9); }
-    .plan-card.featured .plan-feat { color: rgba(255,255,255,.8); }
+    .plan-tarjeta.featured .plan-price,
+    .plan-tarjeta.featured .plan-period,
+    .plan-tarjeta.featured .plan-nombre,
+    .plan-tarjeta.featured .plan-desc { color: rgba(255,255,255,.9); }
+    .plan-tarjeta.featured .plan-feat { color: rgba(255,255,255,.8); }
     .plan-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
       padding: 4px 16px; border-radius: 20px;
       background: linear-gradient(90deg,#f59e0b,#ef4444);
       color: #fff; font-size: .7rem; font-weight: 800; white-space: nowrap;
     }
-    .plan-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
-    .plan-price { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 900; color: var(--text); line-height: 1; }
+    .plan-nombre { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
+    .plan-price { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 900; color: var(--texto); line-height: 1; }
     .plan-currency { font-size: 1.2rem; vertical-align: super; }
     .plan-period { font-size: .85rem; color: var(--muted); margin: 6px 0 20px; font-weight: 600; }
     .plan-sep { height: 1px; background: var(--line); margin: 20px 0; }
-    .plan-card.featured .plan-sep { background: rgba(255,255,255,.15); }
+    .plan-tarjeta.featured .plan-sep { background: rgba(255,255,255,.15); }
     .plan-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-    .plan-feat { display: flex; align-items: center; gap: 10px; font-size: .88rem; color: var(--text); }
+    .plan-feat { display: flex; align-items: center; gap: 10px; font-size: .88rem; color: var(--texto); }
     .feat-check { width: 18px; height: 18px; border-radius: 50%; background: rgba(20,168,92,.12); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: .7rem; flex-shrink: 0; }
-    .plan-card.featured .feat-check { background: rgba(255,255,255,.15); color: #fff; }
+    .plan-tarjeta.featured .feat-check { background: rgba(255,255,255,.15); color: #fff; }
     .feat-x { background: var(--line); color: var(--muted); }
-
-    /* ═══ FAQ ═══ */
-    .faq-section { padding: 100px 60px; }
-    .faq-inner { max-width: 760px; margin: 0 auto; }
-    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
-    .faq-item {
-      background: var(--surface); border: 1px solid var(--line);
-      border-radius: var(--r-lg); overflow: hidden;
-      transition: box-shadow .2s;
-    }
-    .faq-item:hover { box-shadow: var(--sh); }
-    .faq-q {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 24px; cursor: pointer; gap: 16px;
-      font-weight: 700; font-size: .95rem; user-select: none;
-    }
-    .faq-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: .8rem; flex-shrink: 0; transition: transform .3s, background .3s; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--p1); color: #fff; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-a-inner { padding: 0 24px 20px; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 
     /* ═══ CTA BANNER ═══ */
     .cta-section { padding: 40px 60px 100px; }
-    .cta-card {
+    .cta-tarjeta {
       background: linear-gradient(135deg,#050d22 0%,#0b2055 60%,#1a3a8c 100%);
       border-radius: 28px; padding: 72px;
-      text-align: center; position: relative; overflow: hidden;
+      texto-align: center; position: relative; overflow: hidden;
     }
-    .cta-card::before {
+    .cta-tarjeta::before {
       content:''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
       width: 400px; height: 400px; border-radius: 50%;
       background: radial-gradient(circle,rgba(56,128,255,.25),transparent 70%);
     }
-    .cta-card h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem,3.5vw,3.4rem); font-weight: 900; color: #fff; letter-spacing: -.04em; margin-bottom: 14px; }
-    .cta-card p { color: rgba(255,255,255,.55); font-size: 1.05rem; margin-bottom: 36px; }
+    .cta-tarjeta h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem,3.5vw,3.4rem); font-weight: 900; color: #fff; letter-spacing: -.04em; margin-bottom: 14px; }
+    .cta-tarjeta p { color: rgba(255,255,255,.55); font-size: 1.05rem; margin-bottom: 36px; }
     .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     /* ═══ FOOTER ═══ */
     .footer-main {
       background: var(--dark); padding: 60px;
     }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1280px; margin: 0 auto; }
-    .footer-brand-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; margin-top: 10px; }
+    .footer-cuadricula { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1280px; margin: 0 auto; }
+    .footer-brand-nombre { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; margin-top: 10px; }
     .footer-brand-desc { color: rgba(255,255,255,.38); font-size: .85rem; line-height: 1.65; margin-top: 10px; }
     .footer-col h4 { font-weight: 800; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 16px; }
     .footer-col a { display: block; color: rgba(255,255,255,.55); font-size: .88rem; margin-bottom: 10px; transition: color .2s; }
@@ -686,13 +650,6 @@
     }
     .footer-bottom p { color: rgba(255,255,255,.3); font-size: .8rem; }
     .socials { display: flex; gap: 10px; }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.5); font-size: .9rem; transition: all .2s;
-      border: 1px solid rgba(255,255,255,.08);
-    }
-    .social-btn:hover { background: var(--p1); color: #fff; border-color: var(--p1); }
 
     /* ═══ MODAL ═══ */
     .modal-backdrop {
@@ -709,7 +666,7 @@
     }
     .modal-tabs { display: flex; border-bottom: 1px solid var(--line); }
     .modal-tab {
-      flex: 1; padding: 18px; text-align: center; cursor: pointer;
+      flex: 1; padding: 18px; texto-align: center; cursor: pointer;
       font-weight: 800; font-size: .9rem; color: var(--muted);
       border-bottom: 2px solid transparent; transition: all .2s;
     }
@@ -719,13 +676,13 @@
     .modal-sub { color: var(--muted); font-size: .88rem; margin-bottom: 24px; }
     .form-group { margin-bottom: 16px; }
     .form-label { display: block; font-weight: 700; font-size: .82rem; margin-bottom: 6px; }
-    .form-input {
+    .form-entrada {
       width: 100%; padding: 12px 14px; border-radius: var(--r-md);
       border: 1px solid var(--line); background: var(--bg);
-      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--texto);
       transition: border-color .2s, box-shadow .2s; outline: none;
     }
-    .form-input:focus { border-color: var(--p2); box-shadow: 0 0 0 3px rgba(56,128,255,.12); }
+    .form-entrada:focus { border-color: var(--p2); box-shadow: 0 0 0 3px rgba(56,128,255,.12); }
     .form-hint { font-size: .75rem; color: var(--muted); margin-top: 4px; }
     .modal-close {
       position: absolute; top: 16px; right: 16px;
@@ -737,7 +694,7 @@
     .modal-forgot { font-size: .8rem; color: var(--p1); font-weight: 700; cursor: pointer; float: right; margin-bottom: 4px; }
     .modal-or { display: flex; align-items: center; gap: 12px; margin: 16px 0; font-size: .78rem; color: var(--muted); }
     .modal-or::before,.modal-or::after { content:''; flex: 1; height: 1px; background: var(--line); }
-    .btn-google { background: var(--bg); border: 1px solid var(--line); color: var(--text); width: 100%; justify-content: center; gap: 10px; }
+    .btn-google { background: var(--bg); border: 1px solid var(--line); color: var(--texto); width: 100%; justify-content: center; gap: 10px; }
     .btn-google:hover { background: var(--line); }
 
     /* Google Select Modal */
@@ -753,15 +710,15 @@
     .google-account:hover { background: var(--bg); border-color: var(--line); }
     .google-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--p2); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .9rem; flex-shrink: 0; }
     .google-info { flex: 1; min-width: 0; }
-    .google-name { font-weight: 600; font-size: .9rem; color: var(--text); }
-    .google-email { font-size: .8rem; color: var(--muted); margin-top: 2px; }
-    .google-footer { padding: 14px 28px; border-top: 1px solid var(--line); text-align: center; }
+    .google-nombre { font-weight: 600; font-size: .9rem; color: var(--texto); }
+    .google-correo { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+    .google-footer { padding: 14px 28px; border-top: 1px solid var(--line); texto-align: center; }
     .google-footer p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
 
     /* Upload modal */
     .upload-zone {
       border: 2px dashed var(--line); border-radius: var(--r-lg); padding: 40px;
-      text-align: center; cursor: pointer; transition: border-color .2s, background .2s;
+      texto-align: center; cursor: pointer; transition: border-color .2s, background .2s;
     }
     .upload-zone:hover { border-color: var(--p2); background: rgba(56,128,255,.03); }
     .icono-subida { font-size: 2.4rem; margin-bottom: 12px; }
@@ -808,22 +765,22 @@
     }
     .panel-detalle.open { transform: translateX(0); }
     .detail-close { position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--bg); cursor: pointer; font-size: 1.1rem; }
-    .detail-thumb { width: 80px; height: 80px; border-radius: var(--r-lg); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .detail-name { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 900; }
-    .detail-cat { color: var(--muted); font-size: .85rem; font-weight: 600; margin-top: 4px; }
+    .detail-miniatura { width: 80px; height: 80px; border-radius: var(--r-lg); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .detail-nombre { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 900; }
+    .detail-categoria { color: var(--muted); font-size: .85rem; font-weight: 600; margin-top: 4px; }
     .detail-price-block { background: var(--bg); border-radius: var(--r-lg); padding: 20px; margin: 20px 0; }
     .detail-price-big { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--p1); }
     .detail-price-label { font-size: .78rem; color: var(--muted); font-weight: 600; }
     .detail-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
     .compare-item { background: var(--bg); border-radius: var(--r-md); padding: 14px; }
     .compare-label { font-size: .72rem; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
-    .compare-val { font-weight: 800; font-size: .95rem; }
-    .detail-reco { margin: 20px 0; padding: 16px; border-radius: var(--r-lg); }
-    .detail-reco.danger { background: rgba(229,62,58,.07); border: 1px solid rgba(229,62,58,.18); }
-    .detail-reco.success { background: rgba(20,168,92,.07); border: 1px solid rgba(20,168,92,.18); }
-    .detail-reco.warning { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.18); }
-    .reco-title { font-weight: 800; font-size: .9rem; margin-bottom: 4px; }
-    .reco-text { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+    .compare-valor { font-weight: 800; font-size: .95rem; }
+    .detail-recomendacion { margin: 20px 0; padding: 16px; border-radius: var(--r-lg); }
+    .detail-recomendacion.danger { background: rgba(229,62,58,.07); border: 1px solid rgba(229,62,58,.18); }
+    .detail-recomendacion.success { background: rgba(20,168,92,.07); border: 1px solid rgba(20,168,92,.18); }
+    .detail-recomendacion.warning { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.18); }
+    .recomendacion-title { font-weight: 800; font-size: .9rem; margin-bottom: 4px; }
+    .recomendacion-texto { font-size: .82rem; color: var(--muted); line-height: 1.55; }
     .detail-chart-title { font-weight: 800; font-size: .9rem; margin-bottom: 12px; }
 
     /* ═══ RESPONSIVE ═══ */
@@ -833,35 +790,34 @@
       .hamburger { display: flex; }
       .topbar-actions .btn:not(.btn-primary) { display: none; }
       .hero { padding: 100px 24px 80px; }
-      .hero-grid { grid-template-columns: 1fr; }
+      .hero-cuadricula { grid-template-columns: 1fr; }
       .hero-panel { display: none; }
       .how-it-works .how-wrap { padding: 60px 24px; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .steps-grid::after { display: none; }
+      .steps-cuadricula { grid-template-columns: 1fr 1fr; }
+      .steps-cuadricula::after { display: none; }
       .features-section { padding: 60px 24px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .feat-big { grid-row: auto; }
+      .features-cuadricula { grid-template-columns: 1fr; }
+      .feat-big { cuadricula-row: auto; }
       .analysis-inner { padding: 0 24px; }
-      .product-grid { grid-template-columns: 1fr 1fr; }
+      .product-cuadricula { grid-template-columns: 1fr 1fr; }
       .stats-section { padding: 60px 24px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .stats-cuadricula { grid-template-columns: 1fr 1fr; gap: 2px; }
       .stat-block:first-child { border-radius: var(--r-xl) 0 0 0; }
       .stat-block:last-child { border-radius: 0 0 var(--r-xl) 0; }
       .pricing-section { padding: 60px 24px; }
-      .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .faq-section { padding: 60px 24px; }
+      .plans-cuadricula { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .cta-section { padding: 20px 24px 60px; }
-      .cta-card { padding: 48px 28px; }
+      .cta-tarjeta { padding: 48px 28px; }
       .footer-main { padding: 48px 24px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 10px; text-align: center; }
+      .footer-cuadricula { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 10px; texto-align: center; }
       .panel-detalle { width: 100%; }
       .logo-strip { padding: 22px 24px; }
     }
     @media (max-width: 620px) {
-      .product-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .product-cuadricula { grid-template-columns: 1fr; }
+      .steps-cuadricula { grid-template-columns: 1fr; }
+      .stats-cuadricula { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -879,7 +835,7 @@
       <div class="splash-logo">P</div>
     </div>
     <div class="splash-line"></div>
-    <div class="splash-text">Pricenalytics</div>
+    <div class="splash-texto">Pricenalytics</div>
     <div class="splash-subtext">Inteligencia de Precios</div>
   </div>
 </div>
@@ -888,13 +844,12 @@
 <header class="topbar" id="topbar">
   <div class="brand">
     <div class="brand-logo">P</div>
-    <span class="brand-name">Pricenalytics</span>
+    <span class="brand-nombre">Pricenalytics</span>
   </div>
   <nav class="nav">
     <a href="#funciona">Cómo Funciona</a>
     <a href="#precios">Precios</a>
     <a href="#analisis">Demo</a>
-    <a href="#faq">FAQ</a>
   </nav>
   <div class="topbar-actions">
     <button class="btn btn-ghost btn-sm" onclick="openModal('login')">Iniciar Sesión</button>
@@ -910,7 +865,6 @@
   <a href="#funciona" onclick="closeMobileMenu()">Cómo Funciona</a>
   <a href="#precios" onclick="closeMobileMenu()">Precios</a>
   <a href="#analisis" onclick="closeMobileMenu()">Demo</a>
-  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
   <button class="btn btn-ghost" onclick="openModal('login');closeMobileMenu()">Iniciar Sesión</button>
   <button class="btn btn-primary" onclick="openModal('register');closeMobileMenu()">Regístrate Gratis</button>
 </nav>
@@ -921,7 +875,7 @@
   <div class="hero-orb orb-2"></div>
   <div class="hero-orb orb-3"></div>
 
-  <div class="hero-grid">
+  <div class="hero-cuadricula">
     <div class="hero-content">
       <div class="hero-eyebrow"><span></span> Plataforma #1 en Colombia</div>
       <h1>Analiza precios, <br><span class="hl">vende más inteligente</span></h1>
@@ -932,49 +886,40 @@
         </button>
         <a href="#analisis" class="btn btn-ghost btn-lg">Ver Demo en Vivo →</a>
       </div>
-      <div class="hero-trust">
-        <div class="hero-avatars">
-          <img src="https://i.pravatar.cc/80?img=1" alt="usuario" />
-          <img src="https://i.pravatar.cc/80?img=5" alt="usuario" />
-          <img src="https://i.pravatar.cc/80?img=8" alt="usuario" />
-          <img src="https://i.pravatar.cc/80?img=12" alt="usuario" />
-        </div>
-        <p class="hero-trust-text"><strong>+3.800 vendedores</strong> ya optimizan sus precios</p>
-      </div>
     </div>
 
     <!-- panel principal -->
     <div class="hero-panel">
       <div style="position:relative;">
-        <div class="panel-card">
+        <div class="panel-tarjeta">
           <div class="panel-header">
             <span class="panel-title">Análisis en tiempo real</span>
             <span class="panel-live"><span class="live-dot"></span> En vivo</span>
           </div>
 
           <div class="panel-product" onclick="showToast('Analizando iPhone 15 Pro...','info')">
-            <div class="panel-product-img">📱</div>
+            <div class="panel-product-imagen">📱</div>
             <div class="panel-product-info">
-              <div class="panel-product-name">iPhone 15 Pro</div>
-              <div class="panel-product-cat">Tecnología · Mercado Libre</div>
+              <div class="panel-product-nombre">iPhone 15 Pro</div>
+              <div class="panel-product-categoria">Tecnología · Mercado Libre</div>
             </div>
             <span class="panel-product-badge badge-danger">+12% caro</span>
           </div>
 
           <div class="panel-product" onclick="showToast('Analizando Nike Air Max...','info')">
-            <div class="panel-product-img">👟</div>
+            <div class="panel-product-imagen">👟</div>
             <div class="panel-product-info">
-              <div class="panel-product-name">Nike Air Max 270</div>
-              <div class="panel-product-cat">Moda · Rappi</div>
+              <div class="panel-product-nombre">Nike Air Max 270</div>
+              <div class="panel-product-categoria">Moda · Rappi</div>
             </div>
             <span class="panel-product-badge badge-success">Precio ideal</span>
           </div>
 
           <div class="panel-product" onclick="showToast('Analizando Auriculares Sony...','info')">
-            <div class="panel-product-img">🎧</div>
+            <div class="panel-product-imagen">🎧</div>
             <div class="panel-product-info">
-              <div class="panel-product-name">Sony WH-1000XM5</div>
-              <div class="panel-product-cat">Audio · Éxito</div>
+              <div class="panel-product-nombre">Sony WH-1000XM5</div>
+              <div class="panel-product-categoria">Audio · Éxito</div>
             </div>
             <span class="panel-product-badge badge-warning">+8% margen</span>
           </div>
@@ -995,15 +940,15 @@
 
           <div class="panel-stats">
             <div class="stat-pill">
-              <div class="stat-pill-val" style="color:#4ade80">↑14%</div>
+              <div class="stat-pill-valor" style="color:#4ade80">↑14%</div>
               <div class="stat-pill-lbl">Ganancias</div>
             </div>
             <div class="stat-pill">
-              <div class="stat-pill-val" style="color:#fff">$2.4M</div>
+              <div class="stat-pill-valor" style="color:#fff">$2.4M</div>
               <div class="stat-pill-lbl">Ahorrado</div>
             </div>
             <div class="stat-pill">
-              <div class="stat-pill-val" style="color:#fbbf24">98%</div>
+              <div class="stat-pill-valor" style="color:#fbbf24">98%</div>
               <div class="stat-pill-lbl">Precisión</div>
             </div>
           </div>
@@ -1014,7 +959,7 @@
           <div class="float-tag-inner">
             <span class="float-tag-icon">🎯</span>
             <div>
-              <div class="float-tag-text">Recomendación IA</div>
+              <div class="float-tag-texto">Recomendación IA</div>
               <div class="float-tag-sub">Baja $15.000 → +22 ventas</div>
             </div>
           </div>
@@ -1023,7 +968,7 @@
           <div class="float-tag-inner">
             <span class="float-tag-icon">📊</span>
             <div>
-              <div class="float-tag-text">847 competidores</div>
+              <div class="float-tag-texto">847 competidores</div>
               <div class="float-tag-sub">analizados hoy</div>
             </div>
           </div>
@@ -1057,19 +1002,19 @@
       <h2 class="section-title">Listo en 4 pasos simples</h2>
       <p class="section-sub">Sin configuraciones complicadas. En menos de 5 minutos ya tienes el análisis completo de tu mercado.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step reveal reveal-d1">
-        <div class="step-num">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="steps-cuadricula">
+      <div class="paso reveal reveal-d1">
+        <div class="paso-num">
+          <svg class="paso-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 5v14m7-7l-7-7-7 7"/>
           </svg>
         </div>
         <h3>Sube tu Inventario</h3>
         <p>Carga tu lista en Excel, CSV o conéctate directamente a tu tienda.</p>
       </div>
-      <div class="step reveal reveal-d2">
-        <div class="step-num">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="paso reveal reveal-d2">
+        <div class="paso-num">
+          <svg class="paso-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/>
             <path d="m21 21-4.35-4.35"/>
           </svg>
@@ -1077,9 +1022,9 @@
         <h3>Escaneamos el Mercado</h3>
         <p>Nuestra IA analiza miles de precios en tiempo real en múltiples plataformas.</p>
       </div>
-      <div class="step reveal reveal-d3">
-        <div class="step-num">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="paso reveal reveal-d3">
+        <div class="paso-num">
+          <svg class="paso-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="2" x2="12" y2="22"/>
             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
           </svg>
@@ -1087,9 +1032,9 @@
         <h3>Recibe el Análisis</h3>
         <p>Visualiza exactamente cómo se comparan tus precios con la competencia.</p>
       </div>
-      <div class="step reveal reveal-d3">
-        <div class="step-num">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="paso reveal reveal-d3">
+        <div class="paso-num">
+          <svg class="paso-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             <path d="M12 9v2m0 4v2"/>
           </svg>
@@ -1108,12 +1053,12 @@
       <div class="section-label">Características</div>
       <h2 class="section-title">Todo lo que necesitas<br>para dominar tu mercado</h2>
     </div>
-    <div class="features-grid">
-      <!-- Big card -->
+    <div class="features-cuadricula">
+      <!-- Big tarjeta -->
       <div class="feat-big reveal">
-        <div class="feat-card">
-          <div class="feat-card-accent accent-blue"></div>
-          <div class="feat-card-icon">📈</div>
+        <div class="feat-tarjeta">
+          <div class="feat-tarjeta-accent accent-blue"></div>
+          <div class="feat-tarjeta-icon">📈</div>
           <h3>Comparativa de Precios Visual</h3>
           <p>Ve de un vistazo cómo tus precios se comparan con el promedio del mercado. Gráficas interactivas que te muestran oportunidades de ajuste.</p>
           <div class="feat-big-chart">
@@ -1153,36 +1098,36 @@
       </div>
 
       <div class="reveal reveal-d1">
-        <div class="feat-card">
-          <div class="feat-card-accent accent-green"></div>
-          <div class="feat-card-icon">🤖</div>
+        <div class="feat-tarjeta">
+          <div class="feat-tarjeta-accent accent-green"></div>
+          <div class="feat-tarjeta-icon">🤖</div>
           <h3>Recomendaciones con IA</h3>
           <p>Nuestra inteligencia artificial analiza tendencias históricas y te sugiere el precio óptimo para maximizar tus ventas y margen.</p>
         </div>
       </div>
 
       <div class="reveal reveal-d2">
-        <div class="feat-card">
-          <div class="feat-card-accent accent-amber"></div>
-          <div class="feat-card-icon">🔔</div>
+        <div class="feat-tarjeta">
+          <div class="feat-tarjeta-accent accent-amber"></div>
+          <div class="feat-tarjeta-icon">🔔</div>
           <h3>Alertas en Tiempo Real</h3>
           <p>Recibe notificaciones cuando un competidor cambie sus precios o cuando una oportunidad de mercado aparezca.</p>
         </div>
       </div>
 
       <div class="reveal reveal-d1">
-        <div class="feat-card">
-          <div class="feat-card-accent accent-purple"></div>
-          <div class="feat-card-icon">🌎</div>
+        <div class="feat-tarjeta">
+          <div class="feat-tarjeta-accent accent-purple"></div>
+          <div class="feat-tarjeta-icon">🌎</div>
           <h3>Cobertura Nacional</h3>
           <p>Datos de Mercado Libre, Rappi, Éxito, Falabella, Linio, Amazon y más de 40 plataformas colombianas.</p>
         </div>
       </div>
 
       <div class="reveal reveal-d2">
-        <div class="feat-card">
-          <div class="feat-card-accent accent-blue"></div>
-          <div class="feat-card-icon">📥</div>
+        <div class="feat-tarjeta">
+          <div class="feat-tarjeta-accent accent-blue"></div>
+          <div class="feat-tarjeta-icon">📥</div>
           <h3>Reportes Exportables</h3>
           <p>Descarga reportes en PDF o Excel con toda la información de tu análisis para presentarlos a tu equipo.</p>
         </div>
@@ -1213,7 +1158,7 @@
       </div>
     </div>
 
-    <div class="product-grid" id="productGrid">
+    <div class="product-cuadricula" id="productGrid">
       <!-- Cards generated by JS -->
     </div>
   </div>
@@ -1222,21 +1167,21 @@
 <!-- ══════════ estadisticas ══════════ -->
 <section class="stats-section">
   <div class="stats-inner">
-    <div class="stats-grid">
+    <div class="stats-cuadricula">
       <div class="stat-block reveal">
-        <div class="stat-num"><span class="counter" data-target="3800">0</span><span class="stat-unit">+</span></div>
+        <div class="stat-num"><span class="counter" data-objetivo="3800">0</span><span class="stat-unit">+</span></div>
         <div class="stat-lbl">Vendedores activos</div>
       </div>
       <div class="stat-block reveal reveal-d1">
-        <div class="stat-num"><span class="counter" data-target="40">0</span><span class="stat-unit">+</span></div>
+        <div class="stat-num"><span class="counter" data-objetivo="40">0</span><span class="stat-unit">+</span></div>
         <div class="stat-lbl">Plataformas integradas</div>
       </div>
       <div class="stat-block reveal reveal-d2">
-        <div class="stat-num"><span class="counter" data-target="98">0</span><span class="stat-unit">%</span></div>
+        <div class="stat-num"><span class="counter" data-objetivo="98">0</span><span class="stat-unit">%</span></div>
         <div class="stat-lbl">Precisión de datos</div>
       </div>
       <div class="stat-block reveal reveal-d3">
-        <div class="stat-num"><span class="counter" data-target="12">0</span><span class="stat-unit">M</span></div>
+        <div class="stat-num"><span class="counter" data-objetivo="12">0</span><span class="stat-unit">M</span></div>
         <div class="stat-lbl">Productos analizados</div>
       </div>
     </div>
@@ -1254,17 +1199,17 @@
       <span class="toggle-label active" id="lblMonthly">Mensual</span>
       <label class="toggle-switch">
         <input type="checkbox" id="billingToggle" onchange="toggleBilling()" />
-        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        <div class="toggle-track"><div class="toggle-miniatura"></div></div>
       </label>
       <span class="toggle-label" id="lblAnnual">Anual</span>
       <span class="save-badge">Ahorra 20%</span>
     </div>
 
-    <div class="plans-grid">
+    <div class="plans-cuadricula">
       <!-- Starter -->
-      <div class="plan-card reveal">
-        <div class="plan-name">Starter</div>
-        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-val" data-monthly="49.900" data-annual="39.900">49.900</span></div>
+      <div class="plan-tarjeta reveal">
+        <div class="plan-nombre">Starter</div>
+        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-valor" data-monthly="49.900" data-annual="39.900">49.900</span></div>
         <div class="plan-period">COP / mes · hasta 50 productos</div>
         <div class="plan-sep"></div>
         <ul class="plan-feats">
@@ -1274,13 +1219,13 @@
           <li class="plan-feat"><span class="feat-check feat-x">✗</span> <span style="color:var(--muted)">Alertas en tiempo real</span></li>
           <li class="plan-feat"><span class="feat-check feat-x">✗</span> <span style="color:var(--muted)">Recomendaciones IA</span></li>
         </ul>
-        <button class="boton boton-borde" style="width:100%;justify-content:center;" onclick="openModal('register');showToast('¡Bienvenido al plan Starter!','success')">Empezar Gratis →</button>
+        <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="openModal('register');showToast('¡Bienvenido al plan Starter!','success')">Empezar Gratis →</button>
       </div>
 
-      <div class="plan-card featured reveal reveal-d1">
+      <div class="plan-tarjeta featured reveal reveal-d1">
         <div class="plan-badge">🔥 Más Popular</div>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-val" data-monthly="129.900" data-annual="103.900">129.900</span></div>
+        <div class="plan-nombre">Pro</div>
+        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-valor" data-monthly="129.900" data-annual="103.900">129.900</span></div>
         <div class="plan-period">COP / mes · hasta 500 productos</div>
         <div class="plan-sep"></div>
         <ul class="plan-feats">
@@ -1294,9 +1239,9 @@
       </div>
 
       
-      <div class="plan-card reveal reveal-d2">
-        <div class="plan-name">Enterprise</div>
-        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-val" data-monthly="399.900" data-annual="319.900">399.900</span></div>
+      <div class="plan-tarjeta reveal reveal-d2">
+        <div class="plan-nombre">Enterprise</div>
+        <div class="plan-price"><span class="plan-currency">$</span><span class="plan-valor" data-monthly="399.900" data-annual="319.900">399.900</span></div>
         <div class="plan-period">COP / mes · productos ilimitados</div>
         <div class="plan-sep"></div>
         <ul class="plan-feats">
@@ -1312,45 +1257,9 @@
   </div>
 </section>
 
-<!-- ══════════ preguntas frecuentes ══════════ -->
-<section class="faq-section" id="faq">
-  <div class="faq-inner">
-    <div class="section-head reveal" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">FAQ</div>
-      <h2 class="section-title">Preguntas frecuentes</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Cómo se obtienen los datos de precios? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Usamos tecnología de web scraping avanzada y APIs oficiales de las principales plataformas de comercio electrónico en Colombia. Nuestros datos se actualizan cada hora para garantizar información siempre fresca y precisa.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿En qué formato puedo subir mi inventario? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Aceptamos archivos Excel (.xlsx), CSV y conexión directa con Mercado Libre, Shopify y WooCommerce. También puedes ingresar productos manualmente si tienes pocos artículos.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Hay período de prueba gratuito? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sí. El plan Starter es gratuito por 14 días sin necesidad de tarjeta de crédito. Después puedes seguir con el plan gratuito limitado o pasar a Pro para desbloquear todas las funciones.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Qué tan precisas son las recomendaciones de IA? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Nuestro modelo tiene un 98% de precisión en la predicción de precios óptimos, basado en más de 12 millones de productos analizados. Consideramos factores como estacionalidad, tendencias de búsqueda y comportamiento de la competencia.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Puedo cancelar en cualquier momento? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutamente. No hay contratos a largo plazo. Puedes cancelar tu suscripción desde el panel de control en cualquier momento y no se te cobrará el siguiente mes.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Tienen soporte en español? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">¡Por supuesto! Todo nuestro equipo de soporte es colombiano. Atendemos por chat, email y WhatsApp de lunes a sábado de 8am a 6pm. Los planes Pro y Enterprise tienen soporte prioritario.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ CTA ══════════ -->
 <section class="cta-section">
-  <div class="cta-card reveal">
+  <div class="cta-tarjeta reveal">
     <h2>Empieza a vender con inteligencia hoy</h2>
     <p>Únete a más de 3.800 vendedores colombianos que ya optimizan sus precios con datos reales.</p>
     <div class="cta-actions">
@@ -1363,12 +1272,12 @@
 
 <footer>
   <div class="footer-main">
-    <div class="footer-grid">
+    <div class="footer-cuadricula">
       <div>
         <div class="brand">
           <div class="brand-logo">P</div>
         </div>
-        <div class="footer-brand-name">Pricenalytics</div>
+        <div class="footer-brand-nombre">Pricenalytics</div>
         <p class="footer-brand-desc">La plataforma de analítica de precios líder en Colombia. Ayudamos a vendedores a tomar decisiones más inteligentes con datos reales del mercado.</p>
       </div>
       <div class="footer-col">
@@ -1378,30 +1287,10 @@
         <a href="#precios">Precios</a>
         <a href="#analisis">Demo</a>
       </div>
-      <div class="footer-col">
-        <h4>Empresa</h4>
-        <a href="#">Acerca de Nosotros</a>
-        <a href="#">Blog</a>
-        <a href="#">Prensa</a>
-        <a href="#">Carreras</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Aviso Legal</a>
-        <a href="#">Privacidad</a>
-        <a href="#">Términos de Uso</a>
-        <a href="#">Contacto</a>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Pricenalytics SAS · Bogotá, Colombia · NIT 901.234.567-8</p>
-    <div class="socials">
-      <a class="social-btn" href="#" aria-label="Instagram">◎</a>
-      <a class="social-btn" href="#" aria-label="LinkedIn">in</a>
-      <a class="social-btn" href="#" aria-label="Twitter">✦</a>
-      <a class="social-btn" href="#" aria-label="Facebook">f</a>
-    </div>
+    <p>© 2026 Pricenalytics</p>
   </div>
 </footer>
 
@@ -1442,8 +1331,8 @@
   </div>
       </div>
       <div style="margin-top:20px;">
-        <p style="font-size:.8rem;color:var(--muted);text-align:center;margin-bottom:14px;">— o conecta directamente —</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <p style="font-size:.8rem;color:var(--muted);texto-align:center;margin-bottom:14px;">— o conecta directamente —</p>
+        <div style="display:cuadricula;grid-template-columns:1fr 1fr;gap:10px;">
           <button class="boton boton-borde" style="font-size:.82rem;" onclick="showToast('Conectando con Mercado Libre...','info')">🛒 Mercado Libre</button>
           <button class="boton boton-borde" style="font-size:.82rem;" onclick="showToast('Conectando con Shopify...','info')">🏪 Shopify</button>
           <button class="boton boton-borde" style="font-size:.82rem;" onclick="showToast('Conectando con Rappi...','info')">🛵 Rappi</button>
@@ -1481,26 +1370,26 @@
 <script>
 // ══════════════════════ productos ══════════════════════
 const productos = [
-  { id:1, name:'iPhone 15 Pro', cat:'Tecnología', emoji:'📱', thumb:'thumb-blue', img:'https://images.unsplash.com/photo-1592286927505-1def25115558?w=400&h=400&fit=crop', myPrice:4800000, mktPrice:4200000, status:'danger', statusText:'Estás 14% más caro', reco:'Considera bajar tu precio a $4.300.000 para aumentar conversión.', diff:-14 },
-  { id:2, name:'Camiseta Negra Premium', cat:'Moda', emoji:'👕', thumb:'thumb-pink', img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop', myPrice:40000, mktPrice:35000, status:'success', statusText:'Puedes bajar el precio', reco:'Reducir a $37.000 podría multiplicar por 3 tus ventas este mes.', diff:-12 },
-  { id:3, name:'Sony WH-1000XM5', cat:'Audio', emoji:'🎧', thumb:'thumb-mint', img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', myPrice:740000, mktPrice:820000, status:'warning', statusText:'¡Tienes margen para subir!', reco:'Puedes subir hasta $800.000 sin perder competitividad.', diff:10 },
-  { id:4, name:'Samsung Galaxy S24', cat:'Tecnología', emoji:'📲', thumb:'thumb-sky', img:'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:3200000, mktPrice:3180000, status:'warning', statusText:'Precio competitivo', reco:'Tu precio es casi idéntico al mercado. Estás bien posicionado.', diff:1 },
-  { id:5, name:'Nike Air Max 270', cat:'Moda', emoji:'👟', thumb:'thumb-amber', img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', myPrice:380000, mktPrice:395000, status:'warning', statusText:'Podrías subir $15.000', reco:'Subir a $395.000 te pone en línea con el mercado y mejora tu margen.', diff:4 },
-  { id:6, name:'JBL Flip 6', cat:'Audio', emoji:'🔊', thumb:'thumb-purple', img:'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop', myPrice:290000, mktPrice:260000, status:'danger', statusText:'Estás 11% más caro', reco:'Bajar a $265.000 te haría más competitivo sin sacrificar mucho margen.', diff:-11 },
-  { id:7, name:'Aspiradora Dyson V15', cat:'Hogar', emoji:'🧹', thumb:'thumb-blue', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', myPrice:1850000, mktPrice:1900000, status:'warning', statusText:'Precio ideal de mercado', reco:'Estás $50.000 por debajo del mercado. Considera subir ligeramente.', diff:3 },
-  { id:8, name:'Pelota Fútbol Adidas', cat:'Deporte', emoji:'⚽', thumb:'thumb-mint', img:'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:85000, mktPrice:79000, status:'danger', statusText:'Estás 7% más caro', reco:'Bajar a $80.000 mejoraría tus conversiones en Mercado Libre.', diff:-7 },
-  { id:9, name:'Yoga Mat Premium', cat:'Deporte', emoji:'🧘', thumb:'thumb-amber', img:'https://images.pexels.com/photos/3807511/pexels-photo-3807511.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:120000, mktPrice:135000, status:'warning', statusText:'Tienes margen del 11%', reco:'Podrías subir hasta $132.000 y seguir siendo competitivo.', diff:11 },
-  { id:10, name:'Apple AirPods Pro', cat:'Audio', emoji:'🎵', thumb:'thumb-pink', img:'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:650000, mktPrice:620000, status:'warning', statusText:'Margen competitivo', reco:'Tu precio es bueno, mantén esta estrategia.', diff:5 },
-  { id:11, name:'MacBook Air M2', cat:'Tecnología', emoji:'💻', thumb:'thumb-sky', img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop', myPrice:5900000, mktPrice:5500000, status:'danger', statusText:'Muy caro vs mercado', reco:'Reduce a $5.600.000 para mejorar conversiones.', diff:-8 },
-  { id:12, name:'Smartwatch Samsung', cat:'Accesorios', emoji:'⌚', thumb:'thumb-blue', img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', myPrice:890000, mktPrice:920000, status:'success', statusText:'Buen precio', reco:'Podrías subir hasta $910.000 sin riesgo.', diff:3 },
-  { id:13, name:'Teclado Mecánico RGB', cat:'Accesorios', emoji:'⌨️', thumb:'thumb-purple', img:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:320000, mktPrice:290000, status:'danger', statusText:'Estás 10% caro', reco:'Baja a $295.000 para ser más competitivo.', diff:-10 },
-  { id:14, name:'Monitor 4K 32"', cat:'Tecnología', emoji:'🖥️', thumb:'thumb-mint', img:'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop', myPrice:1200000, mktPrice:1100000, status:'danger', statusText:'Precio alto', reco:'Reduce a $1.120.000 para aumentar tráfico.', diff:-9 },
-  { id:15, name:'Mochila Viaje Premium', cat:'Accesorios', emoji:'🎒', thumb:'thumb-amber', img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop', myPrice:180000, mktPrice:165000, status:'warning', statusText:'Margen aceptable', reco:'Mantén el precio actual o baja $5.000.', diff:9 },
-  { id:16, name:'Lámpara LED Inteligente', cat:'Hogar', emoji:'💡', thumb:'thumb-sky', img:'https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:95000, mktPrice:110000, status:'success', statusText:'Precio ventajoso', reco:'¡Perfecto! Esta es tu mejor oportunidad en Hogar.', diff:13 },
-  { id:17, name:'Bicicleta Montaña', cat:'Deporte', emoji:'🚴', thumb:'thumb-pink', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', myPrice:1400000, mktPrice:1350000, status:'warning', statusText:'Casi en línea', reco:'Reduce $20.000 para ser número 1.', diff:4 },
-  { id:18, name:'Cafetera Espresso', cat:'Hogar', emoji:'☕', thumb:'thumb-purple', img:'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', myPrice:450000, mktPrice:420000, status:'warning', statusText:'Competitivo', reco:'Precio bueno, no cambies.', diff:7 },
-  { id:19, name:'Gafas de Sol Premium', cat:'Accesorios', emoji:'😎', thumb:'thumb-amber', img:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop', myPrice:280000, mktPrice:300000, status:'success', statusText:'¡Excelente precio!', reco:'Podrías subir hasta $310.000.', diff:7 },
-  { id:20, name:'Proyector Portátil 4K', cat:'Tecnología', emoji:'🎬', thumb:'thumb-mint', img:'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop', myPrice:2800000, mktPrice:2500000, status:'danger', statusText:'Muy caro', reco:'Baja a $2.550.000 inmediatamente.', diff:-12 },
+  { id:1, nombre:'iPhone 15 Pro', categoria:'Tecnología', emoji:'📱', miniatura:'miniatura-blue', imagen:'https://images.unsplash.com/photo-1592286927505-1def25115558?w=400&h=400&fit=crop', miPrecio:4800000, precioMercado:4200000, estado:'danger', textoEstado:'Estás 14% más caro', recomendacion:'Considera bajar tu precio a $4.300.000 para aumentar conversión.', diferencia:-14 },
+  { id:2, nombre:'Camiseta Negra Premium', categoria:'Moda', emoji:'👕', miniatura:'miniatura-pink', imagen:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop', miPrecio:40000, precioMercado:35000, estado:'success', textoEstado:'Puedes bajar el precio', recomendacion:'Reducir a $37.000 podría multiplicar por 3 tus ventas este mes.', diferencia:-12 },
+  { id:3, nombre:'Sony WH-1000XM5', categoria:'Audio', emoji:'🎧', miniatura:'miniatura-mint', imagen:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', miPrecio:740000, precioMercado:820000, estado:'warning', textoEstado:'¡Tienes margen para subir!', recomendacion:'Puedes subir hasta $800.000 sin perder competitividad.', diferencia:10 },
+  { id:4, nombre:'Samsung Galaxy S24', categoria:'Tecnología', emoji:'📲', miniatura:'miniatura-sky', imagen:'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:3200000, precioMercado:3180000, estado:'warning', textoEstado:'Precio competitivo', recomendacion:'Tu precio es casi idéntico al mercado. Estás bien posicionado.', diferencia:1 },
+  { id:5, nombre:'Nike Air Max 270', categoria:'Moda', emoji:'👟', miniatura:'miniatura-amber', imagen:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', miPrecio:380000, precioMercado:395000, estado:'warning', textoEstado:'Podrías subir $15.000', recomendacion:'Subir a $395.000 te pone en línea con el mercado y mejora tu margen.', diferencia:4 },
+  { id:6, nombre:'JBL Flip 6', categoria:'Audio', emoji:'🔊', miniatura:'miniatura-purple', imagen:'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop', miPrecio:290000, precioMercado:260000, estado:'danger', textoEstado:'Estás 11% más caro', recomendacion:'Bajar a $265.000 te haría más competitivo sin sacrificar mucho margen.', diferencia:-11 },
+  { id:7, nombre:'Aspiradora Dyson V15', categoria:'Hogar', emoji:'🧹', miniatura:'miniatura-blue', imagen:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', miPrecio:1850000, precioMercado:1900000, estado:'warning', textoEstado:'Precio ideal de mercado', recomendacion:'Estás $50.000 por debajo del mercado. Considera subir ligeramente.', diferencia:3 },
+  { id:8, nombre:'Pelota Fútbol Adidas', categoria:'Deporte', emoji:'⚽', miniatura:'miniatura-mint', imagen:'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:85000, precioMercado:79000, estado:'danger', textoEstado:'Estás 7% más caro', recomendacion:'Bajar a $80.000 mejoraría tus conversiones en Mercado Libre.', diferencia:-7 },
+  { id:9, nombre:'Yoga Mat Premium', categoria:'Deporte', emoji:'🧘', miniatura:'miniatura-amber', imagen:'https://images.pexels.com/photos/3807511/pexels-photo-3807511.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:120000, precioMercado:135000, estado:'warning', textoEstado:'Tienes margen del 11%', recomendacion:'Podrías subir hasta $132.000 y seguir siendo competitivo.', diferencia:11 },
+  { id:10, nombre:'Apple AirPods Pro', categoria:'Audio', emoji:'🎵', miniatura:'miniatura-pink', imagen:'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:650000, precioMercado:620000, estado:'warning', textoEstado:'Margen competitivo', recomendacion:'Tu precio es bueno, mantén esta estrategia.', diferencia:5 },
+  { id:11, nombre:'MacBook Air M2', categoria:'Tecnología', emoji:'💻', miniatura:'miniatura-sky', imagen:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop', miPrecio:5900000, precioMercado:5500000, estado:'danger', textoEstado:'Muy caro vs mercado', recomendacion:'Reduce a $5.600.000 para mejorar conversiones.', diferencia:-8 },
+  { id:12, nombre:'Smartwatch Samsung', categoria:'Accesorios', emoji:'⌚', miniatura:'miniatura-blue', imagen:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', miPrecio:890000, precioMercado:920000, estado:'success', textoEstado:'Buen precio', recomendacion:'Podrías subir hasta $910.000 sin riesgo.', diferencia:3 },
+  { id:13, nombre:'Teclado Mecánico RGB', categoria:'Accesorios', emoji:'⌨️', miniatura:'miniatura-purple', imagen:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:320000, precioMercado:290000, estado:'danger', textoEstado:'Estás 10% caro', recomendacion:'Baja a $295.000 para ser más competitivo.', diferencia:-10 },
+  { id:14, nombre:'Monitor 4K 32"', categoria:'Tecnología', emoji:'🖥️', miniatura:'miniatura-mint', imagen:'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop', miPrecio:1200000, precioMercado:1100000, estado:'danger', textoEstado:'Precio alto', recomendacion:'Reduce a $1.120.000 para aumentar tráfico.', diferencia:-9 },
+  { id:15, nombre:'Mochila Viaje Premium', categoria:'Accesorios', emoji:'🎒', miniatura:'miniatura-amber', imagen:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop', miPrecio:180000, precioMercado:165000, estado:'warning', textoEstado:'Margen aceptable', recomendacion:'Mantén el precio actual o baja $5.000.', diferencia:9 },
+  { id:16, nombre:'Lámpara LED Inteligente', categoria:'Hogar', emoji:'💡', miniatura:'miniatura-sky', imagen:'https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:95000, precioMercado:110000, estado:'success', textoEstado:'Precio ventajoso', recomendacion:'¡Perfecto! Esta es tu mejor oportunidad en Hogar.', diferencia:13 },
+  { id:17, nombre:'Bicicleta Montaña', categoria:'Deporte', emoji:'🚴', miniatura:'miniatura-pink', imagen:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', miPrecio:1400000, precioMercado:1350000, estado:'warning', textoEstado:'Casi en línea', recomendacion:'Reduce $20.000 para ser número 1.', diferencia:4 },
+  { id:18, nombre:'Cafetera Espresso', categoria:'Hogar', emoji:'☕', miniatura:'miniatura-purple', imagen:'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1', miPrecio:450000, precioMercado:420000, estado:'warning', textoEstado:'Competitivo', recomendacion:'Precio bueno, no cambies.', diferencia:7 },
+  { id:19, nombre:'Gafas de Sol Premium', categoria:'Accesorios', emoji:'😎', miniatura:'miniatura-amber', imagen:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop', miPrecio:280000, precioMercado:300000, estado:'success', textoEstado:'¡Excelente precio!', recomendacion:'Podrías subir hasta $310.000.', diferencia:7 },
+  { id:20, nombre:'Proyector Portátil 4K', categoria:'Tecnología', emoji:'🎬', miniatura:'miniatura-mint', imagen:'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop', miPrecio:2800000, precioMercado:2500000, estado:'danger', textoEstado:'Muy caro', recomendacion:'Baja a $2.550.000 inmediatamente.', diferencia:-12 },
 ];
 
 // ══════════════════════ BARRA SCROLL ══════════════════════
@@ -1517,23 +1406,23 @@ function closeMobileMenu() {
 }
 
 // ══════════════════════ SCROLL ══════════════════════
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+const revealObs = new IntersectionObserver((entradas) => {
+  entradas.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ══════════════════════ COUNTERS ══════════════════════
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
+const counterObs = new IntersectionObserver((entradas) => {
+  entradas.forEach(e => {
     if(!e.isIntersecting) return;
     const el = e.target;
-    const target = parseInt(el.dataset.target);
-    let current = 0;
-    const step = target / 60;
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = Math.floor(current).toLocaleString('es-CO');
-      if(current >= target) clearInterval(timer);
+    const objetivo = parseInt(el.dataset.objetivo);
+    let actual = 0;
+    const paso = objetivo / 60;
+    const temporizador = setInterval(() => {
+      actual = Math.min(actual + paso, objetivo);
+      el.textContent = Math.floor(actual).toLocaleString('es-CO');
+      if(actual >= objetivo) clearInterval(temporizador);
     }, 20);
     counterObs.unobserve(el);
   });
@@ -1541,29 +1430,29 @@ const counterObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
 
 
-function analizarProducto(myPrice, mktPrice) {
+function analizarProducto(miPrecio, precioMercado) {
 
-  let diff = ((myPrice - mktPrice) / mktPrice) * 100;
+  let diferencia = ((miPrecio - precioMercado) / precioMercado) * 100;
 
-  if (myPrice > mktPrice) {
+  if (miPrecio > precioMercado) {
     return {
-      status: "danger",
-      statusText: "estas " + Math.round(diff) + "% mas caro",
-      diff: diff
+      estado: "danger",
+      textoEstado: "estas " + Math.round(diferencia) + "% mas caro",
+      diferencia: diferencia
     };
   } 
-  else if (myPrice < mktPrice) {
+  else if (miPrecio < precioMercado) {
     return {
-      status: "success",
-      statusText: "estas " + Math.abs(Math.round(diff)) + "% mas barato",
-      diff: diff
+      estado: "success",
+      textoEstado: "estas " + Math.abs(Math.round(diferencia)) + "% mas barato",
+      diferencia: diferencia
     };
   } 
   else {
     return {
-      status: "warning",
-      statusText: "precio Ajustado",
-      diff: 0
+      estado: "warning",
+      textoEstado: "precio Ajustado",
+      diferencia: 0
     };
   }
 
@@ -1573,50 +1462,50 @@ function analizarProducto(myPrice, mktPrice) {
 function subirInventarioCSV() {
   console.log("archivo detectado");
 
-  const input = document.getElementById('entradaArchivo');
-  const file = input.files[0];
+  const entrada = document.getElementById('entradaArchivo');
+  const archivo = entrada.files[0];
 
-  if (!file) {
+  if (!archivo) {
     alert("no seleccionaste archivo");
     return;
   }
 
-  const reader = new FileReader();
+  const lector = new FileReader();
 
-  reader.onload = function(e) {
+  lector.onload = function(e) {
     console.log("archivo leido");
 
-    const text = e.target.result;
-    const lines = text.split("\n");
+    const texto = e.target.result;
+    const lineas = texto.split("\n");
 
     const nuevosProductos = [];
 
-    for (let i = 1; i < lines.length; i++) {
-  const fila = lines[i].trim();
+    for (let i = 1; i < lineas.length; i++) {
+  const fila = lineas[i].trim();
   if (!fila) continue;
 
-  const [name, cat, myPrice] = fila.split(",");
+  const [nombre, categoria, miPrecio] = fila.split(",");
 
-  const precio = parseFloat(myPrice.trim()) || 0;
+  const precio = parseFloat(miPrecio.trim()) || 0;
 
   let variacion = Math.random() * 0.2 - 0.1;
-  const mktPrice = Math.round(precio * (1 + variacion));
+  const precioMercado = Math.round(precio * (1 + variacion));
 
-  const resultado = analizarProducto(precio, mktPrice);
+  const resultado = analizarProducto(precio, precioMercado);
 
   nuevosProductos.push({
     id: i,
-    name: name.trim(),
-    cat: cat.trim(),
+    nombre: nombre.trim(),
+    categoria: categoria.trim(),
     emoji: "📦",
-    thumb: "thumb-blue",
-    img: "",
-    myPrice: precio,
-    mktPrice: mktPrice,
-    status: resultado.status,
-    statusText: resultado.statusText,
-    diff: resultado.diff,
-    reco: "precio generado automaticamente"
+    miniatura: "miniatura-blue",
+    imagen: "",
+    miPrecio: precio,
+    precioMercado: precioMercado,
+    estado: resultado.estado,
+    textoEstado: resultado.textoEstado,
+    diferencia: resultado.diferencia,
+    recomendacion: "precio generado automaticamente"
   });
 }
 
@@ -1628,53 +1517,53 @@ function subirInventarioCSV() {
     alert("csv cargado correctamente");
   };
 
-  reader.readAsText(file);
+  lector.readAsText(archivo);
 }
 // ══════════════════════ PRODRUCTOS CARGADOS ══════════════════════
 function renderizarProductos() {
-  const grid = document.getElementById('productGrid');
+  const cuadricula = document.getElementById('productGrid');
   const productosAnalizados = productos.map(p => {
-  const resultado = analizarProducto(p.myPrice, p.mktPrice);
+  const resultado = analizarProducto(p.miPrecio, p.precioMercado);
 
   return {
   ...p,
-  status: resultado.status,
-  statusText: resultado.statusText,
-  diff: resultado.diff
+  estado: resultado.estado,
+  textoEstado: resultado.textoEstado,
+  diferencia: resultado.diferencia
   };
 });
 
-grid.innerHTML = productosAnalizados.map(p => `
-    <div class="product-card reveal" data-category="${p.cat}" onclick="abrirDetalle(${p.id})">
+cuadricula.innerHTML = productosAnalizados.map(p => `
+    <div class="product-tarjeta reveal" data-category="${p.categoria}" onclick="abrirDetalle(${p.id})">
       <div class="product-top">
-        <img src="${p.img}" alt="${p.name}" class="product-thumb" style="width:64px; height:64px; object-fit:cover; border-radius:10px; flex-shrink:0;" onerror="this.style.display='none'">
+        <img src="${p.imagen}" alt="${p.nombre}" class="product-miniatura" style="width:64px; height:64px; object-fit:cover; border-radius:10px; flex-shrink:0;" onerror="this.style.display='none'">
         <div style="flex:1;padding-left:12px;">
-          <div class="product-name">${p.name}</div>
-          <div class="product-cat">${p.cat}</div>
+          <div class="product-nombre">${p.nombre}</div>
+          <div class="product-categoria">${p.categoria}</div>
         </div>
       </div>
       <div class="product-prices">
         <div class="price-row">
           <span class="price-lbl">Tu precio</span>
-          <span class="price-val">${fmt(p.myPrice)}</span>
+          <span class="price-valor">${fmt(p.miPrecio)}</span>
         </div>
         <div class="price-row">
           <span class="price-lbl">Mercado</span>
-          <span class="price-val" style="color:var(--muted)">${fmt(p.mktPrice)}</span>
+          <span class="price-valor" style="color:var(--muted)">${fmt(p.precioMercado)}</span>
         </div>
-          <div class="diff-fill fill-${p.status}" style="width:${Math.min(Math.abs(p.diff)*5,100)}%"></div>
+          <div class="diferencia-fill fill-${p.estado}" style="width:${Math.min(Math.abs(p.diferencia)*5,100)}%"></div>
         </div>
-      <div class="product-status status-${p.status}">
-        ${p.status==='danger'?'⚠':p.status==='success'?'✓':'💡'} ${p.statusText || "sin datos"}
+      <div class="product-estado estado-${p.estado}">
+        ${p.estado==='danger'?'⚠':p.estado==='success'?'✓':'💡'} ${p.textoEstado || "sin datos"}
       </div>
-      <div class="card-action-bar">
-        <button class="boton boton-borde" onclick="event.stopPropagation();ajustarPrecio(${p.id})">Ajustar Precio</button>
+      <div class="tarjeta-action-bar">
+        <button class="btn btn-outline" onclick="event.stopPropagation();ajustarPrecio(${p.id})">Ajustar Precio</button>
         <button class="btn btn-primary" onclick="event.stopPropagation();abrirDetalle(${p.id})">Ver Detalle</button>
       </div>
     </div>
   `).join('');
   
-  document.querySelectorAll('.product-card.reveal').forEach(el => revealObs.observe(el));
+  document.querySelectorAll('.product-tarjeta.reveal').forEach(el => revealObs.observe(el));
 }
 
 function fmt(n) {
@@ -1686,16 +1575,16 @@ renderizarProductos();
 // ══════════════════════  ANIMACION PANTALLA DE CARGA ══════════════════════
 function initSplashScreen() {
   const splash = document.getElementById('splashScreen');
-  const particlesContainer = document.getElementById('splashParticles');
+  const contenedorParticulas = document.getElementById('splashParticles');
   
   // Crear partículas flotantes
   for(let i = 0; i < 30; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 2.5 + 's';
-    particlesContainer.appendChild(particle);
+    const particula = document.createElement('div');
+    particula.className = 'particula';
+    particula.style.left = Math.random() * 100 + '%';
+    particula.style.top = Math.random() * 100 + '%';
+    particula.style.animationDelay = Math.random() * 2.5 + 's';
+    contenedorParticulas.appendChild(particula);
   }
   
   // Ocultar después de 4.5 segundos
@@ -1710,15 +1599,15 @@ window.addEventListener('load', () => {
 });
 
 // ══════════════════════ FILTRO ══════════════════════
-function filterproductos(btn, cat) {
+function filterproductos(btn, categoria) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.product-card').forEach(card => {
-    const match = cat === 'all' || card.dataset.category === cat;
-    card.classList.toggle('is-hidden', !match);
-    if(match) {
-      card.style.animation = 'slideUp .4s ease';
-      setTimeout(() => card.style.animation = '', 400);
+  document.querySelectorAll('.product-tarjeta').forEach(tarjeta => {
+    const coincide = categoria === 'all' || tarjeta.dataset.category === categoria;
+    tarjeta.classList.toggle('is-hidden', !coincide);
+    if(coincide) {
+      tarjeta.style.animation = 'slideUp .4s ease';
+      setTimeout(() => tarjeta.style.animation = '', 400);
     }
   });
 }
@@ -1727,30 +1616,30 @@ function filterproductos(btn, cat) {
 function abrirDetalle(id) {
   const p = productos.find(x => x.id === id);
   if(!p) return;
-  const diff = p.mktPrice 
-  ? ((p.myPrice - p.mktPrice) / p.mktPrice * 100).toFixed(1)
+  const diferencia = p.precioMercado 
+  ? ((p.miPrecio - p.precioMercado) / p.precioMercado * 100).toFixed(1)
   : 0;
   document.getElementById('detailContent').innerHTML = `
-    <div class="detail-thumb ${p.thumb}" style="margin-top:12px;">${p.emoji}</div>
-    <div class="detail-name">${p.name}</div>
-    <div class="detail-cat">${p.cat}</div>
+    <div class="detail-miniatura ${p.miniatura}" style="margin-top:12px;">${p.emoji}</div>
+    <div class="detail-nombre">${p.nombre}</div>
+    <div class="detail-categoria">${p.categoria}</div>
     <div class="detail-price-block">
       <div class="detail-price-label">Tu precio actual</div>
-      <div class="detail-price-big">${fmt(p.myPrice)}</div>
+      <div class="detail-price-big">${fmt(p.miPrecio)}</div>
     </div>
     <div class="detail-compare">
       <div class="compare-item">
         <div class="compare-label">Precio Mercado</div>
-        <div class="compare-val">${fmt(p.mktPrice)}</div>
+        <div class="compare-valor">${fmt(p.precioMercado)}</div>
       </div>
       <div class="compare-item">
         <div class="compare-label">Diferencia</div>
-        <div class="compare-val" style="color:var(--${p.status === 'danger'?'danger':p.status==='success'?'success':'warning'})">${diff > 0 ? '+' : ''}${diff}%</div>
+        <div class="compare-valor" style="color:var(--${p.estado === 'danger'?'danger':p.estado==='success'?'success':'warning'})">${diferencia > 0 ? '+' : ''}${diferencia}%</div>
       </div>
     </div>
-    <div class="detail-reco ${p.status}">
-      <div class="reco-title">${p.status==='danger'?'⚠ Acción Recomendada':p.status==='success'?'✓ Oportunidad de mejora':'💡 Oportunidad de mejora'}</div>
-      <div class="reco-text">${p.reco}</div>
+    <div class="detail-recomendacion ${p.estado}">
+      <div class="recomendacion-title">${p.estado==='danger'?'⚠ Acción Recomendada':p.estado==='success'?'✓ Oportunidad de mejora':'💡 Oportunidad de mejora'}</div>
+      <div class="recomendacion-texto">${p.recomendacion}</div>
     </div>
     <div class="detail-chart-title">Precio en los últimos 30 días</div>
     <svg viewBox="0 0 300 100" style="width:100%;height:90px;border-radius:12px;background:var(--bg);">
@@ -1784,7 +1673,7 @@ function ajustarPrecio(id) {
   if (!producto) return;
 
   // lógica: igualar al mercado (puedes cambiar esto)
-  producto.myPrice = producto.mktPrice;
+  producto.miPrecio = producto.precioMercado;
 
   // volver a renderizar todo
   renderizarProductos();
@@ -1800,12 +1689,12 @@ window.addEventListener('resize', () => {
 
 // ══════════════════════ PRICING TOGGLE ══════════════════════
 function toggleBilling() {
-  const isAnnual = document.getElementById('billingToggle').checked;
-  document.getElementById('lblMonthly').classList.toggle('active', !isAnnual);
-  document.getElementById('lblAnnual').classList.toggle('active', isAnnual);
-  document.querySelectorAll('.plan-val').forEach(el => {
-    const val = isAnnual ? el.dataset.annual : el.dataset.monthly;
-    el.textContent = parseInt(val).toLocaleString('es-CO');
+  const esAnual = document.getElementById('billingToggle').checked;
+  document.getElementById('lblMonthly').classList.toggle('active', !esAnual);
+  document.getElementById('lblAnnual').classList.toggle('active', esAnual);
+  document.querySelectorAll('.plan-valor').forEach(el => {
+    const valor = esAnual ? el.dataset.annual : el.dataset.monthly;
+    el.textContent = parseInt(valor).toLocaleString('es-CO');
   });
 }
 
@@ -1828,107 +1717,107 @@ class AuthManager {
 
   init() {
     
-    const session = this.getSession();
-    if (session) {
-      this.updateNavBar(session);
+    const sesion = this.getSession();
+    if (sesion) {
+      this.updateNavBar(sesion);
     }
   }
 
   getAllUsers() {
-    const users = localStorage.getItem(this.USERS_KEY);
-    return users ? JSON.parse(users) : [];
+    const usuarios = localStorage.getItem(this.USERS_KEY);
+    return usuarios ? JSON.parse(usuarios) : [];
   }
 
-  saveUsers(users) {
-    localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
+  saveUsers(usuarios) {
+    localStorage.setItem(this.USERS_KEY, JSON.stringify(usuarios));
   }
 
   getSession() {
-    const session = localStorage.getItem(this.SESSION_KEY);
-    return session ? JSON.parse(session) : null;
+    const sesion = localStorage.getItem(this.SESSION_KEY);
+    return sesion ? JSON.parse(sesion) : null;
   }
 
-  setSession(user) {
-    localStorage.setItem(this.SESSION_KEY, JSON.stringify(user));
-    this.updateNavBar(user);
+  setSession(usuario) {
+    localStorage.setItem(this.SESSION_KEY, JSON.stringify(usuario));
+    this.updateNavBar(usuario);
   }
 
   clearSession() {
     localStorage.removeItem(this.SESSION_KEY);
   }
 
-  findUserByEmail(email) {
-    return this.getAllUsers().find(u => u.email.toLowerCase() === email.toLowerCase());
+  findUserByEmail(correo) {
+    return this.getAllUsers().find(u => u.correo.toLowerCase() === correo.toLowerCase());
   }
 
-  addUser(name, email, password, isGoogleAuth = false) {
-    const users = this.getAllUsers();
-    if (this.findUserByEmail(email)) {
-      return { success: false, message: 'Este correo ya está registrado' };
+  addUser(nombre, correo, clave, esGoogle = false) {
+    const usuarios = this.getAllUsers();
+    if (this.findUserByEmail(correo)) {
+      return { success: false, mensaje: 'Este correo ya está registrado' };
     }
-    users.push({
+    usuarios.push({
       id: Date.now(),
-      name,
-      email,
-      password: isGoogleAuth ? 'GOOGLE_AUTH' : this.hashPassword(password),
+      nombre,
+      correo,
+      clave: esGoogle ? 'GOOGLE_AUTH' : this.hashPassword(clave),
       createdAt: new Date().toISOString(),
-      provider: isGoogleAuth ? 'google' : 'email'
+      proveedor: esGoogle ? 'google' : 'correo'
     });
-    this.saveUsers(users);
-    return { success: true, message: 'Cuenta creada exitosamente' };
+    this.saveUsers(usuarios);
+    return { success: true, mensaje: 'Cuenta creada exitosamente' };
   }
 
-  authenticate(email, password) {
-    const user = this.findUserByEmail(email);
-    if (!user) {
-      return { success: false, message: 'Correo o contraseña incorrectos' };
+  authenticate(correo, clave) {
+    const usuario = this.findUserByEmail(correo);
+    if (!usuario) {
+      return { success: false, mensaje: 'Correo o contraseña incorrectos' };
     }
     
-    if (user.provider === 'google') {
-      const { password: _, provider: __, ...userWithoutPassword } = user;
-      this.setSession(userWithoutPassword);
-      return { success: true, user: userWithoutPassword };
+    if (usuario.proveedor === 'google') {
+      const { clave: _, proveedor: __, ...usuarioSinClave } = usuario;
+      this.setSession(usuarioSinClave);
+      return { success: true, usuario: usuarioSinClave };
     }
     
-    if (user.password !== this.hashPassword(password)) {
-      return { success: false, message: 'Correo o contraseña incorrectos' };
+    if (usuario.clave !== this.hashPassword(clave)) {
+      return { success: false, mensaje: 'Correo o contraseña incorrectos' };
     }
-    const { password: _, ...userWithoutPassword } = user;
-    this.setSession(userWithoutPassword);
-    return { success: true, user: userWithoutPassword };
+    const { clave: _, ...usuarioSinClave } = usuario;
+    this.setSession(usuarioSinClave);
+    return { success: true, usuario: usuarioSinClave };
   }
 
-  googleSignIn(profile) {
+  googleSignIn(perfil) {
     
-    if (!profile) {
-      profile = GOOGLE_PROFILES[Math.floor(Math.random() * GOOGLE_PROFILES.length)];
+    if (!perfil) {
+      perfil = GOOGLE_PROFILES[Math.floor(Math.random() * GOOGLE_PROFILES.length)];
     }
     
-    const existingUser = this.findUserByEmail(profile.email);
+    const usuarioExistente = this.findUserByEmail(perfil.correo);
     
-    if (existingUser) {
+    if (usuarioExistente) {
       
-      const { password: _, ...userWithoutPassword } = existingUser;
-      this.setSession(userWithoutPassword);
-      return { success: true, user: userWithoutPassword, isNewUser: false };
+      const { clave: _, ...usuarioSinClave } = usuarioExistente;
+      this.setSession(usuarioSinClave);
+      return { success: true, usuario: usuarioSinClave, isNewUser: false };
     } else {
-      // Create new account via Google
-      const result = this.addUser(profile.name, profile.email, '', true);
-      if (result.success) {
-        const newUser = this.findUserByEmail(profile.email);
-        const { password: _, ...userWithoutPassword } = newUser;
-        this.setSession(userWithoutPassword);
-        return { success: true, user: userWithoutPassword, isNewUser: true };
+      // Crear cuenta nueva con Google
+      const resultado = this.addUser(perfil.nombre, perfil.correo, '', true);
+      if (resultado.success) {
+        const usuarioNuevo = this.findUserByEmail(perfil.correo);
+        const { clave: _, ...usuarioSinClave } = usuarioNuevo;
+        this.setSession(usuarioSinClave);
+        return { success: true, usuario: usuarioSinClave, isNewUser: true };
       }
-      return result;
+      return resultado;
     }
   }
 
-  hashPassword(password) {
+  hashPassword(clave) {
     
     let hash = 0;
-    for (let i = 0; i < password.length; i++) {
-      const char = password.charCodeAt(i);
+    for (let i = 0; i < clave.length; i++) {
+      const char = clave.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;
       hash = hash & hash;
     }
@@ -1941,15 +1830,15 @@ class AuthManager {
     showToast('Sesión cerrada correctamente', 'success');
   }
 
-  updateNavBar(user) {
+  updateNavBar(usuario) {
     const actions = document.querySelector('.topbar-actions');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    if (user) {
+    if (usuario) {
       
       actions.innerHTML = `
         <div style="display:flex;align-items:center;gap:10px;">
-          <span style="color:var(--muted);font-size:.9rem;">Hola, <strong>${user.name.split(' ')[0]}</strong></span>
+          <span style="color:var(--muted);font-size:.9rem;">Hola, <strong>${usuario.nombre.split(' ')[0]}</strong></span>
           <button class="btn btn-ghost btn-sm" onclick="authManager.logout()">Cerrar Sesión</button>
         </div>
       `;
@@ -1959,9 +1848,8 @@ class AuthManager {
         <a href="#funciona" onclick="closeMobileMenu()">Cómo Funciona</a>
         <a href="#precios" onclick="closeMobileMenu()">Precios</a>
         <a href="#analisis" onclick="closeMobileMenu()">Demo</a>
-        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
         <div style="padding:15px 0;border-top:1px solid var(--line);font-size:.9rem;">
-          Hola, <strong>${user.name.split(' ')[0]}</strong>
+          Hola, <strong>${usuario.nombre.split(' ')[0]}</strong>
         </div>
         <button class="btn btn-ghost" style="width:100%" onclick="authManager.logout();closeMobileMenu()">Cerrar Sesión</button>
       `;
@@ -1979,7 +1867,6 @@ class AuthManager {
         <a href="#funciona" onclick="closeMobileMenu()">Cómo Funciona</a>
         <a href="#precios" onclick="closeMobileMenu()">Precios</a>
         <a href="#analisis" onclick="closeMobileMenu()">Demo</a>
-        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
         <button class="btn btn-ghost" onclick="openModal('login');closeMobileMenu()">Iniciar Sesión</button>
         <button class="btn btn-primary" onclick="openModal('register');closeMobileMenu()">Regístrate Gratis</button>
       `;
@@ -1994,13 +1881,13 @@ function handleGoogleSignIn() {
   
   const googleList = document.getElementById('googleAccountsList');
   googleList.innerHTML = `
-    <div style="padding: 20px; text-align: center;">
+    <div style="padding: 20px; texto-align: center;">
       <p style="color: var(--muted); margin-bottom: 20px; font-size: .9rem;">Ingresa tu nombre y apellido para crear tu cuenta de Google</p>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <input 
           type="text" 
           id="googleNameInput" 
-          class="form-input" 
+          class="form-entrada" 
           placeholder="Nombre" 
           style="width: 100%;"
           onkeypress="if(event.key==='Enter')submitGoogleAccount()"
@@ -2008,7 +1895,7 @@ function handleGoogleSignIn() {
         <input 
           type="text" 
           id="googleLastNameInput" 
-          class="form-input" 
+          class="form-entrada" 
           placeholder="Apellido"
           style="width: 100%;"
           onkeypress="if(event.key==='Enter')submitGoogleAccount()"
@@ -2027,24 +1914,24 @@ function handleGoogleSignIn() {
 }
 
 function submitGoogleAccount() {
-  const name = document.getElementById('googleNameInput')?.value.trim() || '';
+  const nombre = document.getElementById('googleNameInput')?.value.trim() || '';
   const lastName = document.getElementById('googleLastNameInput')?.value.trim() || '';
   
-  if (!name || !lastName) {
+  if (!nombre || !lastName) {
     showToast('Por favor completa nombre y apellido', 'warning');
     return;
   }
   
-  const fullName = `${name} ${lastName}`;
-  const email = `${name.toLowerCase()}.${lastName.toLowerCase()}@gmail.com`;
+  const fullName = `${nombre} ${lastName}`;
+  const correo = `${nombre.toLowerCase()}.${lastName.toLowerCase()}@gmail.com`;
   
   
-  const profile = {
-    name: fullName,
-    email: email
+  const perfil = {
+    nombre: fullName,
+    correo: correo
   };
   
-  confirmGoogleAccount(profile);
+  confirmGoogleAccount(perfil);
 }
 
 function handleGoogleResponse(response) {
@@ -2055,18 +1942,18 @@ function showGoogleAccountsModal() {
   
 }
 
-function confirmGoogleAccount(profile) {
+function confirmGoogleAccount(perfil) {
   // Usar datos de Google real
-  const result = authManager.googleSignIn(profile);
-  if (result.success) {
+  const resultado = authManager.googleSignIn(perfil);
+  if (resultado.success) {
     closeModal('authModal');
     closeModal('googleModal');
-    const message = result.isNewUser 
-      ? `¡Bienvenido ${result.user.name}! 🎉 Tu cuenta de Google ha sido vinculada a Pricenalytics.`
-      : `¡Bienvenido de vuelta ${result.user.name}! 🎉`;
-    showToast(message, 'success');
+    const mensaje = resultado.isNewUser 
+      ? `¡Bienvenido ${resultado.usuario.nombre}! 🎉 Tu cuenta de Google ha sido vinculada a Pricenalytics.`
+      : `¡Bienvenido de vuelta ${resultado.usuario.nombre}! 🎉`;
+    showToast(mensaje, 'success');
   } else {
-    showToast(result.message || 'Error en Google Sign-in', 'warning');
+    showToast(resultado.mensaje || 'Error en Google Sign-in', 'warning');
   }
 }
 
@@ -2078,12 +1965,12 @@ const loginHTML = `
   <div id="loginError" style="display:none;background:#fee;color:#c33;padding:12px;border-radius:6px;margin-bottom:16px;font-size:.9rem;"></div>
   <div class="form-group">
     <label class="form-label">Correo electrónico</label>
-    <input class="form-input" id="loginEmail" type="email" placeholder="tu@correo.com" />
+    <input class="form-entrada" id="loginEmail" type="email" placeholder="tu@correo.com" />
   </div>
   <div class="form-group">
     <div class="modal-forgot" onclick="showToast('Recuperación disponible pronto','info')">¿Olvidaste tu contraseña?</div>
     <label class="form-label">Contraseña</label>
-    <input class="form-input" id="loginPassword" type="password" placeholder="••••••••" onkeypress="if(event.key==='Enter')handleLogin()" />
+    <input class="form-entrada" id="loginPassword" type="password" placeholder="••••••••" onkeypress="if(event.key==='Enter')handleLogin()" />
   </div>
   <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;" onclick="handleLogin()">Iniciar Sesión →</button>
   <div class="modal-or">o continúa con</div>
@@ -2099,15 +1986,15 @@ const registerHTML = `
   <div id="registerError" style="display:none;background:#fee;color:#c33;padding:12px;border-radius:6px;margin-bottom:16px;font-size:.9rem;"></div>
   <div class="form-group">
     <label class="form-label">Nombre completo</label>
-    <input class="form-input" id="registerName" type="text" placeholder="Tu nombre" />
+    <input class="form-entrada" id="registerName" type="text" placeholder="Tu nombre" />
   </div>
   <div class="form-group">
     <label class="form-label">Correo electrónico</label>
-    <input class="form-input" id="registerEmail" type="email" placeholder="tu@correo.com" />
+    <input class="form-entrada" id="registerEmail" type="email" placeholder="tu@correo.com" />
   </div>
   <div class="form-group">
     <label class="form-label">Contraseña</label>
-    <input class="form-input" id="registerPassword" type="password" placeholder="Mínimo 8 caracteres" />
+    <input class="form-entrada" id="registerPassword" type="password" placeholder="Mínimo 8 caracteres" />
     <div class="form-hint">Mínimo 8 caracteres con letras y números</div>
   </div>
   <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;" onclick="handleRegister()">Crear Cuenta Gratis →</button>
@@ -2116,7 +2003,7 @@ const registerHTML = `
     <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
     Continuar con Google
   </button>
-  <p style="font-size:.73rem;color:var(--muted);text-align:center;margin-top:14px;">Al registrarte aceptas nuestros <a href="#" style="color:var(--p1)">Términos</a> y <a href="#" style="color:var(--p1)">Política de Privacidad</a></p>
+  <p style="font-size:.73rem;color:var(--muted);texto-align:center;margin-top:14px;">Al registrarte aceptas nuestros <a href="#" style="color:var(--p1)">Términos</a> y <a href="#" style="color:var(--p1)">Política de Privacidad</a></p>
 `;
 
 function openModal(tab) {
@@ -2141,59 +2028,59 @@ function switchTab(tab) {
 }
 
 function handleLogin() {
-  const email = document.getElementById('loginEmail')?.value || '';
-  const password = document.getElementById('loginPassword')?.value || '';
+  const correo = document.getElementById('loginEmail')?.value || '';
+  const clave = document.getElementById('loginPassword')?.value || '';
   const errorEl = document.getElementById('loginError');
 
-  if (!email || !password) {
+  if (!correo || !clave) {
     errorEl.style.display = 'block';
     errorEl.textContent = 'Por favor completa todos los campos';
     return;
   }
 
-  const result = authManager.authenticate(email, password);
-  if (result.success) {
+  const resultado = authManager.authenticate(correo, clave);
+  if (resultado.success) {
     closeModal('authModal');
-    showToast(`¡Bienvenido ${result.user.name}! 🎉`, 'success');
+    showToast(`¡Bienvenido ${resultado.usuario.nombre}! 🎉`, 'success');
   } else {
     errorEl.style.display = 'block';
-    errorEl.textContent = result.message;
+    errorEl.textContent = resultado.mensaje;
   }
 }
 
 function handleRegister() {
-  const name = document.getElementById('registerName')?.value || '';
-  const email = document.getElementById('registerEmail')?.value || '';
-  const password = document.getElementById('registerPassword')?.value || '';
+  const nombre = document.getElementById('registerName')?.value || '';
+  const correo = document.getElementById('registerEmail')?.value || '';
+  const clave = document.getElementById('registerPassword')?.value || '';
   const errorEl = document.getElementById('registerError');
 
-  if (!name || !email || !password) {
+  if (!nombre || !correo || !clave) {
     errorEl.style.display = 'block';
     errorEl.textContent = 'Por favor completa todos los campos';
     return;
   }
 
-  if (password.length < 8) {
+  if (clave.length < 8) {
     errorEl.style.display = 'block';
     errorEl.textContent = 'La contraseña debe tener mínimo 8 caracteres';
     return;
   }
 
-  if (!/[0-9]/.test(password)) {
+  if (!/[0-9]/.test(clave)) {
     errorEl.style.display = 'block';
     errorEl.textContent = 'La contraseña debe incluir al menos un número';
     return;
   }
 
-  const result = authManager.addUser(name, email, password);
-  if (result.success) {
+  const resultado = authManager.addUser(nombre, correo, clave);
+  if (resultado.success) {
   
-    const loginResult = authManager.authenticate(email, password);
+    const loginResult = authManager.authenticate(correo, clave);
     closeModal('authModal');
-    showToast(`¡Bienvenido ${name}! 🎉 Tu cuenta ha sido creada exitosamente.`, 'success');
+    showToast(`¡Bienvenido ${nombre}! 🎉 Tu cuenta ha sido creada exitosamente.`, 'success');
   } else {
     errorEl.style.display = 'block';
-    errorEl.textContent = result.message;
+    errorEl.textContent = resultado.mensaje;
   }
 }
 
@@ -2376,28 +2263,28 @@ function toggleChatbot() {
   window.style.display = isOpen ? 'none' : 'flex';
   
   if (!isOpen) {
-    // Enfocar input cuando se abre
+    // Enfocar entrada cuando se abre
     setTimeout(() => {
       document.getElementById('chatInput').focus();
     }, 300);
   }
 }
 
-function addChatMessage(text, sender) {
+function addChatMessage(texto, remitente) {
   const messagesContainer = document.getElementById('chatMessages');
   
   const messageEl = document.createElement('div');
-  messageEl.className = `chat-message ${sender}-message`;
+  messageEl.className = `chat-mensaje ${remitente}-mensaje`;
   
   const avatar = document.createElement('div');
-  avatar.className = 'message-avatar';
-  avatar.textContent = sender === 'user' ? 'TÚ' : 'AI';
+  avatar.className = 'mensaje-avatar';
+  avatar.textContent = remitente === 'usuario' ? 'TÚ' : 'AI';
   
   const bubble = document.createElement('div');
-  bubble.className = 'message-bubble';
-  bubble.innerHTML = text.replace(/\n/g, '<br>');
+  bubble.className = 'mensaje-bubble';
+  bubble.innerHTML = texto.replace(/\n/g, '<br>');
   
-  if (sender === 'user') {
+  if (remitente === 'usuario') {
     messageEl.appendChild(bubble);
     messageEl.appendChild(avatar);
   } else {
@@ -2417,7 +2304,7 @@ function addChatMessage(text, sender) {
 // Close detail on backdrop click
 document.addEventListener('click', e => {
   const panel = document.getElementById('panelDetalle');
-  if(panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('.product-card')) {
+  if(panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('.product-tarjeta')) {
     closeDetail();
   }
 });
@@ -2442,7 +2329,7 @@ function guardarUsuarios(lista) {
 }
 
 // REGISTRO
-function registrarUsuario(nombre, correo, password) {
+function registrarUsuario(nombre, correo, clave) {
 
   let usuarios = obtenerUsuarios();
 
@@ -2456,7 +2343,7 @@ function registrarUsuario(nombre, correo, password) {
   let nuevoUsuario = {
     nombre: nombre,
     correo: correo,
-    password: password
+    clave: clave
   };
 
   usuarios.push(nuevoUsuario);
@@ -2473,12 +2360,12 @@ function registrarUsuario(nombre, correo, password) {
 }
 
 // LOGIN
-function iniciarSesion(correo, password) {
+function iniciarSesion(correo, clave) {
 
   let usuarios = obtenerUsuarios();
 
   let usuario = usuarios.find(
-    u => u.correo === correo && u.password === password
+    u => u.correo === correo && u.clave === clave
   );
 
   if (!usuario) {
@@ -2538,11 +2425,11 @@ function handleRegister() {
 
   let nombre = document.getElementById("registerName").value;
   let correo = document.getElementById("registerEmail").value;
-  let password = document.getElementById("registerPassword").value;
+  let clave = document.getElementById("registerPassword").value;
 
   let errorBox = document.getElementById("registerError");
 
-  if (!nombre || !correo || !password) {
+  if (!nombre || !correo || !clave) {
     errorBox.style.display = "block";
     errorBox.innerText = "Completa todos los campos";
     return;
@@ -2561,7 +2448,7 @@ function handleRegister() {
   let nuevoUsuario = {
     nombre,
     correo,
-    password
+    clave
   };
 
   usuarios.push(nuevoUsuario);
@@ -2577,14 +2464,14 @@ function handleRegister() {
 function handleLogin() {
 
   let correo = document.getElementById("loginEmail").value;
-  let password = document.getElementById("loginPassword").value;
+  let clave = document.getElementById("loginPassword").value;
 
   let errorBox = document.getElementById("loginError");
 
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
   let usuario = usuarios.find(
-    u => u.correo === correo && u.password === password
+    u => u.correo === correo && u.clave === clave
   );
 
   if (!usuario) {
